@@ -8,23 +8,23 @@ export default function Index() {
       <h1 id="INFO" className="is-size-1">Event Information</h1>
 
       <div className="columns is-multiline">
-        <div class="column is-one-third">
+        <div className="column is-one-third">
           <h2 className="is-size-4">Date</h2>
           <p>Saturday June 3rd, 2023</p>
         </div>
-        <div class="column is-one-third">
+        <div className="column is-one-third">
           <h2 className="is-size-4">Time</h2>
           <p>5pm - Midnight</p>
         </div>
-        <div class="column is-one-third">
+        <div className="column is-one-third">
           <h2 className="is-size-4">Location</h2>
           <p>1234 Neat St.<br></br>Seattle, WA</p>
         </div>
-        <div class="column is-one-third">
+        <div className="column is-one-third">
           <h2 className="is-size-4">Venue</h2>
           <p>Some really dope spot.</p>
         </div>
-        <div class="column is-half">
+        <div className="column is-half">
           <h2 className="is-size-4">Accommodations</h2>
           <p>Hotel option 1. Airbnb.</p>
         </div>
