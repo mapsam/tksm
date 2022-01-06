@@ -1,6 +1,6 @@
 import RSVP from '../components/Rsvp.js';
 
-export default function Index() {
+export default function Index({ env }) {
   return (
     <div>
       <p>Sam and Taylor are getting married! 🎉</p>

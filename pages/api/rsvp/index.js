@@ -28,7 +28,7 @@ export default async (req, res) => {
     // set up google client
     const auth = new google.auth.GoogleAuth({
       scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-      projectId: 'tksm-wedding',
+      projectId: process.env.GCLOUD_PROJECT,
       credentials: {
         private_key: process.env.GOOGLE_PRIVATE_KEY,
         client_email: process.env.GOOGLE_CLIENT_EMAIL
