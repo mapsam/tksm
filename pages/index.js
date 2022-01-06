@@ -3,7 +3,7 @@ import RSVP from '../components/Rsvp.js';
 export default function Index() {
   return (
     <div>
-      <p>Sam and Taylor are getting married! 🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in neque sit amet ante dictum suscipit. Aenean tempus lacinia dapibus. Nulla tincidunt, purus non tempus hendrerit, ligula augue varius urna, quis posuere turpis tortor at nibh. Aliquam consequat posuere egestas. Nunc ut justo ac velit dignissim sodales at vel dolor. Morbi consequat vel nisl sit amet molestie. Nam tristique interdum feugiat. Maecenas tincidunt suscipit quam ornare gravida. Integer sed arcu a nisl bibendum ultrices nec tincidunt neque.</p>
+      <p>Sam and Taylor are getting married! 🎉</p>
 
       <h1 id="INFO" className="is-size-1">Event Information</h1>
 
@@ -49,7 +49,7 @@ export default function Index() {
       <p>To keep us all safe we require you to be fully vaccinated at our wedding.</p>
 
       <h2 className="is-size-4">What should I do in Seattle while I'm visiting?</h2>
-      <p>First of all, thanks so much for making the trip. We're really excited for you to see a little bit of our favorite place.</p>
+      <p>First of all, thanks so much for making the trip. We're really excited you want to spend some time in our favorite place.</p>
 
       <h2 className="is-size-4">How did we meet?</h2>
       <p>Taylor and Sam met while attending the University of Wisconsin-Madison.</p>
