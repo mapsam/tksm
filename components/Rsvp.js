@@ -4,6 +4,7 @@ export default function RSVP() {
   const [ data, setData ] = useState({});
   const [ errors, setErrors ] = useState([]);
   const [ success, setSuccess ] = useState(false);
+  const [ submitting, setSubmitting ] = useState(false);
 
   function update(key, val) {
     const d = { ... data };
@@ -13,6 +14,7 @@ export default function RSVP() {
 
   async function sendRSVP(e) {
     e.preventDefault();    
+    setSubmitting(true);
     const response = await fetch('/api/rsvp', {
       method: 'POST',
       headers: {
@@ -22,7 +24,8 @@ export default function RSVP() {
     });
 
     const resData = await response.json();
-    console.log(resData, response.status);
+
+    setSubmitting(false);
 
     if (response.status !== 200) {
       setErrors(resData.errors || ['Something went wrong.']);
@@ -121,7 +124,7 @@ export default function RSVP() {
 
         <div className="field">
           <div className="control">
-            <button className="button is-primary is-size-5" onClick={sendRSVP}>Submit</button>
+            <button className={submitting ? "button is-primary is-size-5 is-loading" : "button is-primary is-size-5"} onClick={sendRSVP}>Submit</button>
           </div>
         </div> 
       </form>
