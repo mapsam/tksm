@@ -4,6 +4,18 @@
 
 // bulma variable overrides
 $family-primary: 'EB Garamond', serif;
+$dark: #1B1F26;
+$text: #1B1F26;
+$link: $text;
+$primary: #1B1F26;
+$content-heading-color: $primary;
+
+a {
+    text-decoration: underline !important;
+    &:hover {
+        color: $primary !important;
+    }
+}
 
 .main {
     display: block;

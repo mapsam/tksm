@@ -1,8 +1,8 @@
 import RSVP from '../components/Rsvp.js';
 
-export default function Index({ env }) {
+export default function Index() {
   return (
-    <div>
+    <div className="content">
       <p>Sam and Taylor are getting married! 🎉</p>
 
       <h1 id="INFO" className="is-size-1">Event Information</h1>
@@ -10,7 +10,7 @@ export default function Index({ env }) {
       <div className="columns is-multiline">
         <div className="column is-one-third">
           <h2 className="is-size-4">Date</h2>
-          <p>Saturday June 3rd, 2023</p>
+          <p>Saturday August 26th, 2023</p>
         </div>
         <div className="column is-one-third">
           <h2 className="is-size-4">Time</h2>
@@ -18,21 +18,21 @@ export default function Index({ env }) {
         </div>
         <div className="column is-one-third">
           <h2 className="is-size-4">Location</h2>
-          <p>1234 Neat St.<br></br>Seattle, WA</p>
+          <p>2931 First Ave. S., Suite A,<br />Seattle, WA</p>
         </div>
         <div className="column is-one-third">
           <h2 className="is-size-4">Venue</h2>
-          <p>Some really dope spot.</p>
+          <p><a href="https://metropolistgroup.com/event-space/" target="_blank">Metropolist</a></p>
         </div>
         <div className="column is-half">
           <h2 className="is-size-4">Accommodations</h2>
-          <p>Hotel option 1. Airbnb.</p>
+          <p>We invite you to enjoy Seattle via Airbnb/Vrbo. Some nearby hotels are waka and flocka.</p>
         </div>
       </div>
-      
+
       <h1 id="REGISTRY" className="is-size-1">Registry</h1>
 
-      <p>Sed at dolor ante. Phasellus varius purus rutrum nunc ornare, quis lacinia sem varius. Suspendisse potenti. In hac habitasse platea dictumst. Morbi augue tellus, commodo eget interdum ut, vehicula eu neque. In varius urna at rhoncus tempor. Quisque vitae porttitor lacus. In varius sollicitudin nibh condimentum hendrerit. Integer maximus velit risus, at lacinia tortor mollis sollicitudin. Vivamus bibendum diam elementum diam feugiat convallis. Donec lacinia convallis aliquet. Duis eu vestibulum nisi. Donec at diam sed magna ultrices facilisis. Vestibulum pretium enim et dictum imperdiet. Duis at sodales arcu, ut facilisis risus. Curabitur eleifend, enim et molestie ultricies, ante augue lobortis leo, id tempor justo ipsum nec mauris.</p>
+      <p>We invite you to donate to some of our favorite charities. If you feel inclined to give a gift, you can contribute to our patio project fund our honeymoon.</p>
 
       <h1 id="RSVP" className="is-size-1">RSVP</h1>
 
