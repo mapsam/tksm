@@ -1,9 +1,11 @@
+import type { AppProps } from 'next/app'
+
 import '../styles/main.scss';
 import Layout from '../components/Layout.js';
 import Head from 'next/head';
 import React from 'react';
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <React.Fragment>
       <Head>
