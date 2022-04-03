@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { sheets_v4, Auth } from 'googleapis';
+import type { APIResponse } from '../../lib/types';
 
 import { google } from 'googleapis';
 import { validateRequestBody, log } from '../../../lib/api';
@@ -50,7 +51,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
       return res.status(500).json({ errors: ['Uh oh, something went wrong. Send Sam a text 651-343-6555!'] })
     }
 
-    return res.json(req.body);
+    return res.json({ data: req.body });
   } else {
     return res.status(400).json({ message: 'Not a valid HTTP method' });
   }

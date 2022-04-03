@@ -1,4 +1,4 @@
-import RSVP from '../components/Rsvp.js';
+import RSVP from '../components/Rsvp';
 
 export default function Index() {
   return (
@@ -10,7 +10,7 @@ export default function Index() {
       <div className="columns is-multiline">
         <div className="column is-one-third">
           <h2 className="is-size-4">Date</h2>
-          <p>Saturday August 26th, 2023</p>
+          <p>Saturday August 12th, 2023</p>
         </div>
         <div className="column is-one-third">
           <h2 className="is-size-4">Time</h2>
@@ -26,7 +26,7 @@ export default function Index() {
         </div>
         <div className="column is-half">
           <h2 className="is-size-4">Accommodations</h2>
-          <p>We invite you to enjoy Seattle via Airbnb/Vrbo. Some nearby hotels are waka and flocka.</p>
+          <p>We encourage you to enjoy Seattle via Airbnb or Vrbo. Some nearby hotels are waka and flocka.</p>
         </div>
       </div>
 
@@ -53,7 +53,6 @@ export default function Index() {
 
       <h2 className="is-size-4">How did we meet?</h2>
       <p>Taylor and Sam met while attending the University of Wisconsin-Madison.</p>
-
     </div>
   )
 }

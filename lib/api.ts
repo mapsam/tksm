@@ -1,7 +1,8 @@
 import type { NextApiRequest } from 'next';
+import type { APIErrors } from './types';
 
 export function validateRequestBody(body: any) : string[] {
-  const errors: Array<string> = [];
+  const errors: APIErrors = [];
   if (!body) return ['No request body provided'];
   if (!body.firstname) errors.push('Missing firstname.');
   if (!body.lastname) errors.push('Missing lastname.');

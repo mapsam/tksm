@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app'
 
 import '../styles/main.scss';
-import Layout from '../components/Layout.js';
+import Layout from '../components/Layout';
 import Head from 'next/head';
 import React from 'react';
 
