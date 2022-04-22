@@ -1,11 +1,8 @@
-import type { ReactNode } from 'react';
-import type { AppProps } from 'next/app'
-
 import Nav from './Nav';
 import Footer from './Footer';
 import React from 'react';
 
-export default function Layout(props: AppProps) : ReactNode {
+export default function Layout(props: any) : any {
   return (
     <React.Fragment>
     <div className="main is-family-primary is-size-5">

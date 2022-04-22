@@ -13,8 +13,7 @@ export default function RSVP() {
     setRsvpData(d);
   }
 
-  async function sendRSVP(e: React.ChangeEvent<HTMLElement>) {
-    e.preventDefault();
+  async function sendRSVP() {
     setSubmitting(true);
     const response = await fetch('/api/rsvp', {
       method: 'POST',

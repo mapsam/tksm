@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { sheets_v4, Auth } from 'googleapis';
-import type { APIResponse } from '../../lib/types';
 
 import { google } from 'googleapis';
 import { validateRequestBody, log } from '../../../lib/api';
