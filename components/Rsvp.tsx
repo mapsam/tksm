@@ -38,9 +38,7 @@ export default function RSVP() {
 
   return (
     <React.Fragment>
-    <p>
-      Each individual should fill out this form by <span className="is-underlined">January 1st, 2023</span>!
-      If you need to submit for more than one person, refresh the page and submit again.</p>
+
     {errors.length > 0 &&
       <div className="box has-background-danger has-text-white">
         <p>There were some errors in the form!</p>

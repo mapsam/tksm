@@ -1,0 +1,66 @@
+@charset 'utf-8';
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import '~normalize.css/normalize.css';
+
+html {
+    font-size: 100%;
+}
+
+* {
+    font-family: 'EB Garamond', serif;
+    color: #2F4037;
+}
+p {
+    line-height: 2.1rem;
+}
+
+p, form {
+    font-size: 1.4rem;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 2;
+}
+nav a {
+    text-decoration: none;
+    margin: 0 2rem 0 0;
+    font-size: 1.3rem;
+}
+
+.title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 4.5rem;
+    margin: 6rem 0 1rem;
+}
+.title-image-container {
+    overflow: hidden;
+    border-radius: 1rem;
+    position: relative;
+    width: 25%;
+    padding: 25%;
+    margin-bottom: -4.5rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+.title-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.block {
+    padding: 0;
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.container {
+    margin: 1rem auto;
+    padding: 0 1rem;
+    max-width: 700px;
+}
