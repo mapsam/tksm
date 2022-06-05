@@ -3,6 +3,7 @@ import type { sheets_v4, Auth } from 'googleapis';
 
 import { google } from 'googleapis';
 import { validateRequestBody, log } from '../../../lib/api';
+import { APIErrors } from '../../../lib/types';
 
 const sheets: sheets_v4.Sheets = google.sheets('v4');
 
@@ -12,7 +13,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   // append RSVP to spreadsheet
   if (req.method === 'POST') {
     // validate body
-    const errors: string[] = validateRequestBody(req.body);
+    const errors: APIErrors[] = validateRequestBody(req.body);
     if (errors.length) return res.status(400).json({ errors });
 
     // set up google client

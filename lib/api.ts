@@ -2,7 +2,7 @@ import type { NextApiRequest } from 'next';
 import type { APIErrors } from './types';
 import v from '@mapbox/fusspot';
 
-export function validateRequestBody2(body: any) : APIErrors[] {
+export function validateRequestBody(body: any) : APIErrors[] {
   const validator = v.assert(
     v.strictShape({
       firstname: v.required(v.string),
