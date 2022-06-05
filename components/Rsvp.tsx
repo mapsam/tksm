@@ -6,6 +6,7 @@ export default function RSVP() {
   const [ errors, setErrors ] = useState<APIErrors>([]);
   const [ success, setSuccess ] = useState<boolean>(false);
   const [ submitting, setSubmitting ] = useState<boolean>(false);
+  const allowRSVPs: boolean = false;
 
   function update(key: string, val: any) {
     const d: APIPostRequest = { ... rsvpData };
@@ -35,11 +36,23 @@ export default function RSVP() {
     }
   }
 
+  if (!allowRSVPs) {
+    return (
+      <div className="rsvp-form">
+        <p>
+          The RSVP form will be made available in Spring 2023.
+          Until then, please book your accomodations as early as possible!
+          We'll send an email once the form becomes available.
+        </p>
+      </div>
+    )
+  }
+
   return (
     <React.Fragment>
 
     {errors.length > 0 &&
-      <div className="box has-background-danger has-text-white">
+      <div className="form-errors">
         <p>There were some errors in the form!</p>
         <ul>
         {errors.map((error, i) => {
@@ -50,7 +63,9 @@ export default function RSVP() {
     }
 
     {!success &&
-      <form onSubmit={sendRSVP}>
+      <form className="rsvp-form" onSubmit={sendRSVP}>
+        <p>Please RSVP by RSVP_DEADLINE! If you need to submit for more than one person, refresh the page and submit again.</p>
+
         <div className="field">
           <label className="label">Firstname</label>
           <div className="control">
@@ -66,23 +81,18 @@ export default function RSVP() {
         </div>
 
         <div className="field">
-          <label className="label">RSVP</label>
+          <label className="label">Email</label>
           <div className="control">
-              <label className="radio is-size-5 mr-3">
-                <input className="mr-2" type="radio" name="question" onChange={e => update('attending', true)}></input>
-                Attending ☺️
-              </label>
-              <label className="radio is-size-5 mr-3">
-                <input className="mr-2" type="radio" name="question" onChange={e => update('attending', false)}></input>
-                Not attending 😢
-              </label>
+            <input className="input" type="text" placeholder="" onChange={e => update('email', e.target.value)}></input>
           </div>
         </div>
 
         <div className="field">
-          <label className="label">Email</label>
           <div className="control">
-            <input className="input" type="text" placeholder="" onChange={e => update('email', e.target.value)}></input>
+            <input type="radio" id="yes" name="question" onChange={e => update('attending', true)} checked />
+            <label htmlFor="yes">Attending ☺️</label>
+            <input type="radio" id="no" name="question" onChange={e => update('attending', false)} />
+            <label htmlFor="no">Not attending 😢</label>
           </div>
         </div>
 
@@ -127,7 +137,7 @@ export default function RSVP() {
     }
 
     {success &&
-      <div className="box has-background-info has-text-white">
+      <div className="form-response">
         {rsvpData.attending &&
           <p className="has-text-weight-bold">
             ❤️ Hooray! We're thrilled you'll be joining us. We will reach out via email with more details. If you need to submit an RSVP for another person refresh this page and submit again.

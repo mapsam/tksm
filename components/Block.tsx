@@ -2,15 +2,17 @@ import type { ReactNode } from 'react';
 
 interface BlockProps {
   id: string,
-  background?: string,
+  style?: Object,
   children?: ReactNode
 }
 
-const defaultColor: string = '#ffffff';
+const defaultStyle = {
+  backgroundColor: '#ffffff'
+}
 
 export default function Block(props: BlockProps) {
   return (
-    <div id={props.id} className="block" style={{ backgroundColor: props.background || defaultColor }}>
+    <div id={props.id} className="block" style={props.style || defaultStyle}>
       <div className="container">
         {props.children}
       </div>

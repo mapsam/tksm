@@ -4,6 +4,7 @@ export default function Nav() {
       <div className="container">
         <a href="#RSVP">RSVP</a>
         <a href="#SCHEDULE">SCHEDULE</a>
+        <a href="#ACCOMODATIONS">ACCOMODATIONS</a>
         <a href="#FAQ">FAQ</a>
       </div>
     </nav>

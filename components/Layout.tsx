@@ -5,7 +5,7 @@ import React from 'react';
 export default function Layout(props: any) : any {
   return (
     <React.Fragment>
-    <div className="main is-family-primary is-size-5">
+    <div className="main">
       <Nav />
 
       <section className="content">
