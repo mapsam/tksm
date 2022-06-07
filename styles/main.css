@@ -20,29 +20,57 @@ p, form, li {
     font-size: 1.4rem;
 }
 
-@media (min-width: 45rem) {
-    nav {
-        border-bottom: 1px solid #fff;
-    }
-}
-nav {
+.nav {
     position: fixed;
-    top: 0;
     width: 100%;
-    background-color: #ffffff;
-    border-bottom: 1px solid #fcd3e5;
-    z-index: 2;
+    height: 100%;
+    background-color: #fff;
+    padding: 1rem;
+    z-index: 10;
+    opacity: 0.95;
+    overflow: hidden;
+    text-align: right;
+    padding-top: 2.5rem;
 }
-nav a {
-    text-decoration: none;
-    margin: 0 2rem 0 0;
-    font-size: 1.3rem;
+.nav-button {
+    position: fixed;
+    right: 0;
+    z-index: 11;
+    background-color: #fff;
+    border: none;
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+}
+.nav-button-bar {
+    width: 30px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: #2F4037;
+    margin: 0.3rem 0;
+    padding: 0;
+    display: block;
+    transition: transform 0.5s, opacity 0.2s linear;
+    -webkit-transition: transform 0.5s, opacity 0.2s linear;
+}
+.nav-button.is-open .nav-button-bar:nth-child(1) {
+    transform: rotateY(0deg) rotate(45deg) translateY(0.4rem);
+    -webkit-transform: rotateY(0deg) rotate(45deg) translateY(0.4rem);
+}
+.nav-button.is-open .nav-button-bar:nth-child(2) {
+    transform: rotateY(0deg) rotate(-45deg) translateY(-0.4rem);
+    -webkit-transform: rotateY(0deg) rotate(-45deg) translateY(-0.4rem);
+}
+.nav-button.is-open .nav-button-bar:nth-child(3) {
+    opacity: 0;
+}
+.nav li {
+    list-style-type: none;
 }
 
 .title {
     font-family: 'DM Serif Display', serif;
     font-size: 3rem;
-    margin: 6rem 0 1rem;
+    margin: 2rem 0 1rem;
 }
 h1 {
     font-size: 2.3rem;

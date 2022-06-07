@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
 import RSVP from '../components/Rsvp';
 import Block from '../components/Block';
 
 export default function Index() {
-  const [showImage, setShowImage] = useState(true);
 
   return (
     <div className="content">
