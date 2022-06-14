@@ -4,9 +4,14 @@ Kelleher Matthews Wedding
 
 ## Develop
 
-```
+```bash
 npm install
+
+# localhost:3000
 npm run dev
+
+# run on local IP for mobile testing
+npm run dev -- -H $(ipconfig getifaddr en0)
 ```
 
 ### Environment

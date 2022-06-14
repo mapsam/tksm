@@ -1,26 +1,37 @@
 import RSVP from '../components/Rsvp';
 import Block from '../components/Block';
+import { useState, useEffect } from 'react';
 
 export default function Index() {
+  const [ showImage, setShowImage ] = useState(true);
 
   return (
     <div className="content">
       <Block id="TITLE">
         <h1 className="title">Taylor &amp; Sam<br />are getting married!</h1>
-        {/* <p>August 12th, 2023 – Seattle, WA</p> */}
 
-        <div className="title-image"></div>
+        <div
+          className="title-image-container"
+          onMouseEnter={() => setShowImage(false)}
+          onMouseLeave={() => setShowImage(true)}
+          onTouchStart={() => setShowImage(false)}
+          onTouchEnd={() => setShowImage(true)}
+          onTouchCancel={() => setShowImage(true)}>
+          <div className="title-image" style={{ backgroundImage: `url('/title-laugh.png')`}}></div>
+          {showImage && <div className="title-image" style={{ backgroundImage: `url('/title-smile.png')`}}></div> }
+        </div>
+
       </Block>
 
       <Block id="INFO" style={{ backgroundColor: '#DEEFE7' }}>
         <p>
+          Saturday August 12th, 2023<br />
+          Seattle, WA
+        </p>
+        <p>
           We couldn't be more excited to host our friends and family out here in the Pacific Northwest,
           a place we've called home for more than a decade. We'll have great food, cold drinks, and
           enough live music to lose your socks.
-        </p>
-        <p>
-          Saturday August 12th, 2023<br />
-          Seattle, WA
         </p>
       </Block>
 
