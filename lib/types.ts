@@ -11,3 +11,12 @@ export interface APIResponse {
   data?: APIPostRequest;
   errors?: APIErrors;
 }
+
+export interface LocationItem {
+  name: string,
+  description?: string,
+  lng: number,
+  lat: number,
+  link: string,
+  address?: string
+}

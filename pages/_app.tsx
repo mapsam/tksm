@@ -1,6 +1,8 @@
 import type { AppProps } from 'next/app'
 
 import '../styles/main.css';
+import '../styles/bg-topography.css';
+import '../styles/bg-food.css';
 import Layout from '../components/Layout';
 import Head from 'next/head';
 import React from 'react';

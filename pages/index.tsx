@@ -1,9 +1,9 @@
 import RSVP from '../components/Rsvp';
 import Block from '../components/Block';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function Index() {
-  const [ showImage, setShowImage ] = useState(true);
+  const [ showImage, setShowImage ] = useState<boolean | null>(true);
 
   return (
     <div className="content">
@@ -139,19 +139,20 @@ export default function Index() {
 
       <Block id="FAQ">
         <h1>Frequently Asked Questions</h1>
-        <p>Have a question that isn't listed? Text us at 651-343-6555. We'll add and amend as people ask :)</p>
-
-        <h2>Are kids allowed?</h2>
-        <p>Nope!</p>
-
-        <h2>COVID-19?</h2>
-        <p>To keep us all safe we require you to be fully vaccinated at our wedding.</p>
-
-        <h2>What should I do in Seattle while I'm visiting?</h2>
-        <p>We're really excited you want to spend some time in our favorite place. Check out our "visiting Seattle" page, which has </p>
 
         <h2>How did we meet?</h2>
-        <p>Taylor and Sam met while attending the University of Wisconsin-Madison.</p>
+        <p>We met as undergrads while attending the University of Wisconsin-Madison. Taylor in a house of 8 "biddies", Sam gratefully sleeping on their couch. Sam moved to Seattle after graduation in 2012, Taylor paid a visit, and the rest is history. We've both lived together in Seattle for nearly a decade.</p>
+
+        <h2>Are kids allowed to the wedding?</h2>
+        <p>Nope!</p>
+
+        <h2>What should I do in Seattle while I'm visiting?</h2>
+        <p>We're really excited you want to spend some time in our favorite place! We have a few scheduled events, but really want to give you a chance to explore the place we call home. Check out the <a href="/seattle">Visiting Seattle page</a>, which has a collection of some of our favorite places and must-see Seattle places.</p>
+
+        <h2>COVID-19?</h2>
+        <p>For the safety of our friends and family we require you to be fully vaccinated at our wedding.</p>
+
+        <h2></h2>
       </Block>
     </div>
   )
