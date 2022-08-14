@@ -13,11 +13,7 @@ import Location from './Location'
 
 export default function LocationGroup({ group }) {
   const locationElements = locations[group].map((location: LocationItem) => {
-    return <Location
-      name={location.name}
-      description={location.description}
-      address={location.address}
-    />;
+    return <Location info={location} />;
   });
 
   return (

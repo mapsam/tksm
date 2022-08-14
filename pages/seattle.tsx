@@ -14,40 +14,43 @@ export default function Page() {
   const [lat, setLat] = useState(47.5888);
   const [zoom, setZoom] = useState(9.6);
 
-  useEffect(() => {
-    if (map.current) return; // initialize map only once
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [lng, lat],
-      zoom: zoom
-    });
+  // useEffect(() => {
+  //   if (map.current) return; // initialize map only once
+  //   map.current = new mapboxgl.Map({
+  //     container: mapContainer.current,
+  //     style: 'mapbox://styles/mapbox/streets-v11',
+  //     center: [lng, lat],
+  //     zoom: zoom
+  //   });
 
-    map.current.on('load', () => {
+  //   map.current.on('load', () => {
 
-    });
-  });
+  //   });
+  // });
 
   return (
     <div className="content">
       <Block id="MAP">
-        <div ref={mapContainer} className="map-container" />
+        <img src='seattle-skyline.png' style={{ maxWidth: 500, opacity: 0.2 }}/>
+        <h1>Visit Seattle</h1>
+        <p>Below is a combination of some of our favorite places in the area as well as must-see Seattle spots. You can filter by event type or neighborhood, depending on how you want to explore the area!</p>
+        <ul>
+          <li><a href="#THINGS-EVENT-LOCATIONS">Event Locations</a></li>
+          <li><a href="#THINGS-ICONIC-SEATTLE">Iconic Seattle</a></li>
+          <li><a href="#THINGS-ARTS">Arts & Culture</a></li>
+          <li><a href="#THINGS-BREWERIES">Breweries</a></li>
+          <li><a href="#THINGS-OUTDOORS">Outdoors</a></li>
+          <li><a href="#THINGS-DAY-TRIPS">Day Trips</a></li>
+        </ul>
+        {/* <div ref={mapContainer} className="map-container" /> */}
       </Block>
 
-      <Block id="THINGS-EVENT-LOCATIONS">
+      <Block id="THINGS-EVENT-LOCATIONS" style={{ backgroundColor: '#DEEFE7' }}>
         <LocationGroup group='Event locations' />
       </Block>
 
-      <Block id="THINGS-NEAR-THE-VENUE">
-        <LocationGroup group='Near the venue' />
-      </Block>
-
-      <Block id="THINGS-ICONIC-SEATTLE" style={{ backgroundColor: '#DEEFE7' }}>
+      <Block id="THINGS-ICONIC-SEATTLE">
         <LocationGroup group='Iconic Seattle' />
-      </Block>
-
-      <Block id="THINGS-RESTAURANTS" backgroundClass="bg-food">
-        <LocationGroup group='Restaurants & Bars' />
       </Block>
 
       <Block id="THINGS-ARTS" style={{ backgroundColor: '#fef2f7' }}>
@@ -58,8 +61,6 @@ export default function Page() {
         <LocationGroup group='Breweries' />
       </Block>
 
-
-
       <Block id="THINGS-OUTDOORS" backgroundClass="bg-topography">
         <LocationGroup group='Outdoors' />
       </Block>
@@ -67,10 +68,6 @@ export default function Page() {
       <Block id="THINGS-DAY-TRIPS">
         <LocationGroup group='Day Trips' />
       </Block>
-
-      {/* <Block id="THINGS" style={{ backgroundColor: '#fef2f7' }}>
-        {locationElements}
-      </Block> */}
     </div>
   );
 }

@@ -216,7 +216,7 @@ form button {
     margin-bottom: 2rem;
 }
 .location-metadata {}
-.location-metadata {
+.location-metadata, .location-metadata * {
     font-family: 'Roboto Mono', monospace;
     font-size: 1rem;
     color: #a7a7a7;

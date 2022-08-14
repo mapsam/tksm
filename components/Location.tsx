@@ -2,20 +2,23 @@ interface LocationProps {
   name: string,
   description: string,
   time?: string,
-  address?: string
+  address?: string,
+  neighborhood?: string,
+  link?: string
 }
 
-export default function Location(props: LocationProps) {
+export default function Location({ info }: { info: LocationProps }) {
   return (
-    <div id={props.name} className="location">
+    <div id={info.name} className="location">
       <p>
-        <strong>{props.name}</strong>
+        <strong>{info.name}</strong>
         <br />
-        {props.description}
+        {info.description} {info.link && <a href={info.link} target='_blank'>(more info)</a>}
       </p>
 
       <div className="location-metadata">
-        {props.address && props.address}
+      {info.neighborhood && info.neighborhood} &bull; <a href={`https://www.google.com/maps/place/${encodeURIComponent(info.address)}`} target='_blank'>{info.address && info.address}</a>
+
       </div>
     </div>
   );
