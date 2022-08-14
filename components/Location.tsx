@@ -1,6 +1,6 @@
 interface LocationProps {
   name: string,
-  description: string,
+  description?: string,
   time?: string,
   address?: string,
   neighborhood?: string,
