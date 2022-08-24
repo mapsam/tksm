@@ -13,7 +13,7 @@ export default function Location({ info }: { info: LocationProps }) {
       <p>
         <strong>{info.name}</strong>
         <br />
-        {info.description} {info.link && <a href={info.link} target='_blank'>(more info)</a>}
+        {info.description} {info.link && <a href={info.link} target='_blank'>more info</a>}
       </p>
 
       <div className="location-metadata">

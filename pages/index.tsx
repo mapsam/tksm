@@ -8,7 +8,7 @@ export default function Index() {
   return (
     <div className="content">
       <Block id="TITLE">
-        <h1 className="title">Taylor &amp; Sam<br />are getting married!</h1>
+        <h1 className="title">Taylor &amp; Sam<br />are having a party!</h1>
 
         <div
           className="title-image-container"
@@ -20,14 +20,13 @@ export default function Index() {
           <div className="title-image" style={{ backgroundImage: `url('/title-laugh.png')`}}></div>
           {showImage && <div className="title-image" style={{ backgroundImage: `url('/title-smile.png')`}}></div> }
         </div>
-
       </Block>
 
-      <Block id="INFO" style={{ backgroundColor: '#DEEFE7' }}>
-        <p>
+      <Block id="INFO" style={{ backgroundColor: '#E6DCF2' }}>
+        <p><strong>
           Saturday August 12th, 2023<br />
           Seattle, WA
-        </p>
+        </strong></p>
         <p>
           We couldn't be more excited to host our friends and family out here in the Pacific Northwest,
           a place we've called home for more than a decade. We'll have great food, cold drinks, and
@@ -41,8 +40,7 @@ export default function Index() {
         </h1>
 
         <div className="event">
-          <div className="dot blue"></div>
-          <div className="dot2 blue"></div>
+        <div className="dot purple-2-bg"></div>
           <h2>Friday, August 11<sup>th</sup> - Out-of-towner's shindig</h2>
           <p>
             Time: 6pm - 9pm<br />
@@ -56,8 +54,7 @@ export default function Index() {
         </div>
 
         <div className="event">
-          <div className="dot green"></div>
-          <div className="dot2 green"></div>
+        <div className="dot purple-3-bg"></div>
           <h2>Saturday, August 12th - Wedding day!</h2>
           <p>
             Time: 5pm - Midnight<br />
@@ -91,8 +88,7 @@ export default function Index() {
         </div>
 
         <div className="event">
-          <div className="dot yellow"></div>
-          <div className="dot2 yellow"></div>
+          <div className="dot purple-2-bg"></div>
           <h2>Sunday, August 13th - Brunch</h2>
           <p>
             Time: 11am - 1pm<br />
@@ -104,7 +100,7 @@ export default function Index() {
         </div>
       </Block>
 
-      <Block id="ACCOMODATIONS" style={{ backgroundColor: '#fef2f7' }}>
+      <Block id="ACCOMODATIONS" style={{ backgroundColor: '#F2F0F2' }}>
         <h1>Accommodations</h1>
         <p>
           There is no official hotel block for our wedding.
@@ -147,7 +143,7 @@ export default function Index() {
         <p>Nope!</p>
 
         <h2>What should I do in Seattle while I'm visiting?</h2>
-        <p>We're really excited you want to spend some time in our favorite place! We have a few scheduled events, but really want to give you a chance to explore the place we call home. Check out the <a href="/seattle">Visiting Seattle page</a>, which has a collection of some of our favorite places and must-see Seattle places.</p>
+        <p>We're really excited you want to spend some time in our favorite place! We have a few scheduled events, but really want to give you a chance to explore the place we call home. Check out the <a href="/seattle">Visiting Seattle page</a>, which has a collection of some of our favorite places and must-see Seattle destinations.</p>
 
         <h2>COVID-19?</h2>
         <p>For the safety of our friends and family we require you to be fully vaccinated at our wedding.</p>
