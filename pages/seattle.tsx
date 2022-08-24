@@ -22,8 +22,6 @@ export async function getServerSideProps(context) {
       }
     });
 
-  console.log(features);
-
   return {
     props: {
       geojson: {

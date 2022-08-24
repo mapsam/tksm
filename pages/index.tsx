@@ -8,7 +8,7 @@ export default function Index() {
   return (
     <div className="content">
       <Block id="TITLE">
-        <h1 className="title">Taylor &amp; Sam<br />are having a party!</h1>
+        <h1 className="title">Taylor &amp; Sam<br />are getting married!</h1>
 
         <div
           className="title-image-container"
@@ -41,14 +41,14 @@ export default function Index() {
 
         <div className="event">
         <div className="dot purple-2-bg"></div>
-          <h2>Friday, August 11<sup>th</sup> - Out-of-towner's shindig</h2>
+          <h2>Friday, August 11<sup>th</sup> - Traveler's shindig</h2>
           <p>
             Time: 6pm - 9pm<br />
             Location: TBD
           </p>
           <p>
             Casual evening for those traveling from out of town.
-            Say hi to the Matthews/Varner and Kelleher/Stuecker families,
+            Say hi to the Matthews/Varner &amp; Kelleher/Stuecker families,
             grab a drink and a bite, and meet some of our favorite locals.
           </p>
         </div>
@@ -64,7 +64,7 @@ export default function Index() {
           <p>
             We're getting married in Seattle's SODO district.
             We'll have a quick ceremony, food trucks, open bar, and games galore.
-            Cap off the night with Eldridge Gravy And The Court Supreme,
+            Cap off the night with Eldridge Gravy and the Court Supreme,
             our favorite local funk band.
           </p>
                   {/* <p>
@@ -89,13 +89,13 @@ export default function Index() {
 
         <div className="event">
           <div className="dot purple-2-bg"></div>
-          <h2>Sunday, August 13th - Brunch</h2>
+          <h2>Sunday, August 13th - Picnic</h2>
           <p>
-            Time: 11am - 1pm<br />
+            Time: 10am - 1pm<br />
             Location: TBD<br />
           </p>
           <p>
-            We'll be hosting a casual brunch and enjoying the weather, rain or shine. Last chance to hug that uncle of yours.
+            Last chance to hug that uncle of yours. Come grab coffee and a baked good in one of Seattle's lovely parks, get some fresh air, and bid farewell to the newlyweds.
           </p>
         </div>
       </Block>
@@ -148,7 +148,11 @@ export default function Index() {
         <h2>COVID-19?</h2>
         <p>For the safety of our friends and family we require you to be fully vaccinated at our wedding.</p>
 
-        <h2></h2>
+        <h2>How do I RSVP?</h2>
+        <p>In late Spring 2023 we'll send emails to have you digitally RSVP for the wedding. Know you can't make it? That's a shame! Feel free to let us know in advance by texting Sam @ 651-343-6555.</p>
+
+        <h2>More questions?</h2>
+        <p>You can text Sam @ 651-343-6555 or email @ matthews.sam@gmail.com.</p>
       </Block>
     </div>
   )

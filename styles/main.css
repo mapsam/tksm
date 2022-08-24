@@ -82,8 +82,15 @@ p, form, li {
 .nav li {
     list-style-type: none;
 }
+@media (max-width: 55rem) {
+    .nav-desktop { display: none; }
+}
+/* desktop */
+@media (min-width: 55rem) {
+    .nav-mobile { display: none; }
+}
 
-.nav2 {
+.nav-desktop {
     position: fixed;
     width: 100%;
     padding: 1rem;
@@ -92,10 +99,10 @@ p, form, li {
     border-bottom: 1px solid #E6DCF2;
     z-index: 20;
 }
-.nav2 a {
+.nav-desktop a {
     margin: 0 1rem;
 }
-.nav2-title {
+.nav-desktop-title {
     font-size: 1.4rem;
     margin: auto 2rem;
     font-family: 'DM Serif Display', serif;
