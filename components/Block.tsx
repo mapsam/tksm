@@ -7,13 +7,9 @@ interface BlockProps {
   backgroundClass?: string
 }
 
-const defaultStyle = {
-  backgroundColor: '#ffffff'
-}
-
 export default function Block(props: BlockProps) {
   return (
-    <div id={props.id} className={`block ${props.backgroundClass}`} style={props.style || defaultStyle}>
+    <div id={props.id} className={`block ${props.backgroundClass || ''}`} style={props.style || {}}>
       <div className="container">
         {props.children}
       </div>

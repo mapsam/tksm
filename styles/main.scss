@@ -4,28 +4,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');
 @import '~normalize.css/normalize.css';
 
+$color-light: #F2E6DF;
+$color-medium: #A69576;
+$color-dark: #01401C;
+$color-text: #444;
+$color-gray: #D9CFC8;
+$color-white: #fff;
+
 html {
     font-size: 100%;
 }
 body {
-    background-color: #F2F0F2;
+    background-color: $color-light;
 }
 
+.color-light { color: $color-light; }
+.color-light-bg { background-color: $color-light; }
+.color-medium { color: $color-medium; }
+.color-medium-bg { background-color: $color-medium; }
+.color-dark { color: $color-dark; }
+.color-dark-bg { background-color: $color-dark; }
+.color-text { color: $color-text; }
+.color-text-bg { background-color: $color-text; }
+.color-gray { color: $color-gray; }
+.color-gray-bg { background-color: $color-gray; }
+.color-white { color: $color-white; }
+.color-white-bg { background-color: $color-white; }
+
 /* Color Theme Swatches in Hex */
-.purple-1 { color: #F2F0F2; }
-.purple-2 { color: #E6DCF2; }
-.purple-3 { color: #CABFD9; }
-.purple-4 { color: #BBADD9; }
-.purple-5 { color: #9A80BF; }
-.purple-1-bg { background-color: #F2F0F2; }
-.purple-2-bg { background-color: #E6DCF2; }
-.purple-3-bg { background-color: #CABFD9; }
-.purple-4-bg { background-color: #BBADD9; }
-.purple-5-bg { background-color: #9A80BF; }
+// .beautiful-green-wedding-bouquet-in-retro-car,-wooden-steering-wheel-1-hex { color: #01401C; }
+// .beautiful-green-wedding-bouquet-in-retro-car,-wooden-steering-wheel-2-hex { color: #A69576; }
+// .beautiful-green-wedding-bouquet-in-retro-car,-wooden-steering-wheel-3-hex { color: #A64914; }
+// .beautiful-green-wedding-bouquet-in-retro-car,-wooden-steering-wheel-4-hex { color: #F2E6DF; }
+// .beautiful-green-wedding-bouquet-in-retro-car,-wooden-steering-wheel-5-hex { color: #59200B; }
 
 * {
     font-family: 'EB Garamond', serif;
-    color: #2F4037;
+    color: $color-text;
     box-sizing: border-box;
 }
 p, li {
@@ -40,7 +55,7 @@ p, form, li {
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: #fff;
+    background-color: $color-light;
     padding: 1rem;
     z-index: 10;
     opacity: 0.95;
@@ -52,7 +67,7 @@ p, form, li {
     position: fixed;
     right: 0;
     z-index: 11;
-    background-color: #fff;
+    background-color: $color-light;
     border: none;
     padding: 0.7rem 1rem;
     cursor: pointer;
@@ -61,7 +76,7 @@ p, form, li {
     width: 30px;
     height: 4px;
     border-radius: 2px;
-    background-color: #2F4037;
+    background-color: $color-dark;
     margin: 0.3rem 0;
     padding: 0;
     display: block;
@@ -95,8 +110,8 @@ p, form, li {
     width: 100%;
     padding: 1rem;
     text-align: center;
-    background-color: #fff;
-    border-bottom: 1px solid #E6DCF2;
+    background-color: $color-light;
+    border-bottom: 1px solid $color-medium;
     z-index: 20;
 }
 .nav-desktop a {
@@ -112,13 +127,14 @@ p, form, li {
     font-family: 'DM Serif Display', serif;
     font-size: 3rem;
     margin: 2rem 0 1rem;
-    text-shadow: #E6DCF2 0.2rem 0.2rem;
+    color: $color-text;
 }
 h1 {
     font-size: 2.3rem;
 }
 h2 {
     font-size: 1.5rem;
+    margin: 2em auto 1em;
 }
 h1, h2, h1 *, h2 * {
     font-family: 'DM Serif Display', serif;
@@ -140,10 +156,10 @@ h1, h2, h1 *, h2 * {
     user-select:none;
     -webkit-tap-highlight-color:rgba(0,0,0,0);
     height: 350px;
-    background-color: #f6f6f6;
+    background-color: $color-light;
     margin-bottom: -6rem;
     position: relative;
-    border: 0.5rem solid #fff;
+    border: 0.5rem solid $color-light;
     border-radius: 1rem;
     overflow: hidden;
 }
@@ -176,7 +192,7 @@ h1, h2, h1 *, h2 * {
 }
 
 footer {
-    border-top: 1px solid #E6DCF2;
+    border-top: 1px solid $color-medium;
     text-align: center;
 }
 footer p {
@@ -223,26 +239,14 @@ form button {
 .rsvp-form {
     padding: 2rem;
     border-radius: 1rem;
-    background-color: #fff;
-    border: 0.5rem solid #E6DCF2;
-    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px; */
-}
-
-.dot {
-    height: 1.7rem;
-    width: 1.7rem;
-    border-radius: 50%;
-    display: inline-block;
-    position: absolute;
-    margin-left: -2.2rem;
+    background-color: $color-gray;
 }
 
 .location {
     margin-bottom: 2rem;
 }
-.location-metadata {}
+// .location-metadata {}
 .location-metadata, .location-metadata * {
     font-family: 'Roboto Mono', monospace;
     font-size: 1rem;
-    color: #a7a7a7;
 }
