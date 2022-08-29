@@ -1,5 +1,6 @@
 interface LocationProps {
   name: string,
+  group: string
   description?: string,
   time?: string,
   address?: string,
@@ -11,7 +12,7 @@ export default function Location({ info }: { info: LocationProps }) {
   return (
     <div id={info.name} className="location">
       <p>
-        <strong>{info.name}</strong>
+        {info.group} / <strong>{info.name}</strong>
         <br />
         {info.description} {info.link && <a href={info.link} target='_blank'>more info</a>}
       </p>

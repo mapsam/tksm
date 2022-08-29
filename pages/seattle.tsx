@@ -1,37 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import mapboxgl from 'mapbox-gl';
 import Block from '../components/Block';
 import LocationGroup from '../components/LocationGroup';
-import locations from '../lib/locations';
-
-import 'mapbox-gl/dist/mapbox-gl.css';
-
-mapboxgl.accessToken = 'pk.eyJ1IjoibWFwc2FtIiwiYSI6ImNsMm5qejJxcTA1ZGUzZXFtMTcyNzJ1bGcifQ.cXVgrUVeQVqXFrslt_d88Q';
-
-export async function getServerSideProps(context) {
-  const features = Object.keys(locations)
-    .reduce((memo, g) => memo.concat(locations[g]), [])
-    .map((loc) => {
-      return {
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [loc.lng || 0.0, loc.lat || 0.0]
-        },
-        properties: loc
-      }
-    });
-
-  return {
-    props: {
-      geojson: {
-        type: 'FeatureCollection',
-        features
-      }
-    }
-  }
-
-}
 
 export default function Page({ geojson }) {
   const mapContainer = useRef(null);
@@ -39,35 +8,6 @@ export default function Page({ geojson }) {
   const [lng, setLng] = useState(-122.3394);
   const [lat, setLat] = useState(47.62);
   const [zoom, setZoom] = useState(10.7);
-
-  // useEffect(() => {
-  //   if (map.current) return; // initialize map only once
-  //   map.current = new mapboxgl.Map({
-  //     container: mapContainer.current,
-  //     style: 'mapbox://styles/mapbox/dark-v10',
-  //     center: [lng, lat],
-  //     zoom: zoom
-  //   });
-
-  //   map.current.on('load', () => {
-  //     map.current.addSource('locations', {
-  //       type: 'geojson',
-  //       data: geojson
-  //     });
-
-  //     map.current.addLayer({
-  //       id: 'locations',
-  //       source: 'locations',
-  //       type: 'circle',
-  //       paint: {
-  //         'circle-radius': 5,
-  //         'circle-color': '#01FF70',
-  //         'circle-stroke-width': 2,
-  //         'circle-stroke-color': '#333'
-  //       }
-  //     })
-  //   });
-  // });
 
   return (
     <div className="content">
@@ -89,25 +29,9 @@ export default function Page({ geojson }) {
 
       <Block id="THINGS-WEDDING-LOCATIONS" style={{ backgroundColor: '#F2F0F2' }}>
         <LocationGroup group='Wedding locations' />
-      </Block>
-
-      <Block id="THINGS-ICONIC-SEATTLE">
         <LocationGroup group='Iconic Seattle' />
-      </Block>
-
-      <Block id="THINGS-ARTS" style={{ backgroundColor: '#E6DCF2' }}>
         <LocationGroup group='Arts & Culture' />
-      </Block>
-
-      <Block id="THINGS-BREWERIES">
         <LocationGroup group='Breweries' />
-      </Block>
-
-      {/* <Block id="THINGS-OUTDOORS" backgroundClass="bg-topography">
-        <LocationGroup group='Outdoors' />
-      </Block> */}
-
-      <Block id="THINGS-DAY-TRIPS" style={{ backgroundColor: '#F2F0F2' }}>
         <LocationGroup group='Day Trips' />
       </Block>
     </div>

@@ -108,14 +108,20 @@ p, form, li {
 .nav-desktop {
     position: fixed;
     width: 100%;
-    padding: 1rem;
     text-align: center;
     background-color: $color-light;
-    border-bottom: 1px solid $color-medium;
+    border-bottom: 1px solid $color-gray;
     z-index: 20;
 }
 .nav-desktop a {
+    display: inline-block;
     margin: 0 1rem;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    padding: 1rem;
+}
+.nav-desktop a.active {
+    border-bottom: 0.3rem solid $color-gray;
 }
 .nav-desktop-title {
     font-size: 1.4rem;
@@ -126,7 +132,7 @@ p, form, li {
 .title {
     font-family: 'DM Serif Display', serif;
     font-size: 3rem;
-    margin: 2rem 0 1rem;
+    margin: 4rem 0 1rem;
     color: $color-text;
 }
 h1 {
@@ -134,7 +140,6 @@ h1 {
 }
 h2 {
     font-size: 1.5rem;
-    margin: 2em auto 1em;
 }
 h1, h2, h1 *, h2 * {
     font-family: 'DM Serif Display', serif;
@@ -182,7 +187,7 @@ h1, h2, h1 *, h2 * {
 .block {
     padding: 0;
     width: 100%;
-    padding: 3rem 0;
+    padding: 1rem 0;
 }
 
 .container {
@@ -192,7 +197,7 @@ h1, h2, h1 *, h2 * {
 }
 
 footer {
-    border-top: 1px solid $color-medium;
+    border-top: 1px solid $color-gray;
     text-align: center;
 }
 footer p {
@@ -227,13 +232,6 @@ form button {
 .form-errors {
     background-color: #b58488;
     padding: 0.25rem 1rem;
-}
-
-.map-container {
-    height: 500px;
-    width: 120%;
-    margin-left: -10%;
-    border-radius: 1rem;
 }
 
 .rsvp-form {
