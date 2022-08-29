@@ -11,34 +11,19 @@ export default function Nav(props: any) : any {
 
   return (
     <React.Fragment>
-    <nav className="nav-desktop">
-      <NavLink href="/" children="HOME" />
-      <NavLink href="/schedule" children="SCHEDULE" />
-      <NavLink href="/travel" children="TRAVEL" />
-      <NavLink href="/accomodations" children="ACCOMODATIONS" />
-      <NavLink href="/seattle" children="VISIT SEATTLE" />
-      <NavLink href="/rsvp" children="RSVP" />
-    </nav>
+    <button className={isOpen ? "nav-button is-open" : "nav-button"} onClick={() => setIsOpen(!isOpen)}>
+      <span className="nav-button-bar"></span>
+      <span className="nav-button-bar"></span>
+      <span className="nav-button-bar"></span>
+    </button>
 
-    <nav className="nav-mobile">
-      <button className={isOpen ? "nav-button is-open" : "nav-button"} onClick={() => setIsOpen(!isOpen)}>
-        <span className="nav-button-bar"></span>
-        <span className="nav-button-bar"></span>
-        <span className="nav-button-bar"></span>
-      </button>
-
-      {isOpen &&
-        <div className="nav">
-          <ul>
-            {/* <li><a href="/#RSVP" onClick={() => setIsOpen(false)}>RSVP</a></li> */}
-            <li><a href="/" onClick={() => setIsOpen(false)}>HOME</a></li>
-            <li><a href="/#SCHEDULE" onClick={() => setIsOpen(false)}>SCHEDULE</a></li>
-            <li><a href="/#FAQ" onClick={() => setIsOpen(false)}>FAQ</a></li>
-            <li><a href="/travel#accomodations" onClick={() => setIsOpen(false)}>ACCOMODATIONS</a></li>
-            <li><a href="/travel" onClick={() => setIsOpen(false)}>TRAVEL</a></li>
-          </ul>
-        </div>
-      }
+    <nav className={isOpen ? "nav is-open" : "nav"}>
+      <NavLink href="/" children="HOME" clickAction={setIsOpen}/>
+      <NavLink href="/schedule" children="SCHEDULE" clickAction={setIsOpen}/>
+      <NavLink href="/travel" children="TRAVEL" clickAction={setIsOpen}/>
+      <NavLink href="/accomodations" children="ACCOMODATIONS" clickAction={setIsOpen}/>
+      <NavLink href="/seattle" children="VISIT SEATTLE" clickAction={setIsOpen}/>
+      <NavLink href="/rsvp" children="RSVP" clickAction={setIsOpen}/>
     </nav>
     </React.Fragment>
   )

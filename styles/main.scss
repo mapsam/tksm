@@ -51,18 +51,56 @@ p, form, li {
     font-size: 1.4rem;
 }
 
-.nav {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: $color-light;
-    padding: 1rem;
-    z-index: 10;
-    opacity: 0.95;
-    overflow: hidden;
-    text-align: right;
-    padding-top: 2.5rem;
+.nav li {
+    list-style-type: none;
 }
+@media (max-width: 55rem) { /* mobile nav */
+    .nav {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: $color-light;
+        padding: 1rem;
+        z-index: 10;
+        opacity: 0.95;
+        overflow: hidden;
+        text-align: right;
+        padding-top: 4rem;
+        display: none;
+    }
+    .nav.is-open {
+        display: block;
+    }
+    .nav a {
+        display: block;
+        margin: 0 1rem;
+        text-decoration: none;
+        letter-spacing: 0.05em;
+        padding: 0.5rem;
+    }
+}
+/* desktop */
+@media (min-width: 55rem) { /* desktop nav */
+    .nav {
+        position: fixed;
+        width: 100%;
+        text-align: center;
+        background-color: $color-light;
+        border-bottom: 1px solid $color-gray;
+        z-index: 20;
+    }
+    .nav a {
+        display: inline-block;
+        margin: 0 1rem;
+        text-decoration: none;
+        letter-spacing: 0.05em;
+        padding: 1rem;
+    }
+    .nav a.active {
+        border-bottom: 0.3rem solid $color-gray;
+    }
+}
+
 .nav-button {
     position: fixed;
     right: 0;
@@ -93,40 +131,6 @@ p, form, li {
 }
 .nav-button.is-open .nav-button-bar:nth-child(3) {
     opacity: 0;
-}
-.nav li {
-    list-style-type: none;
-}
-@media (max-width: 55rem) {
-    .nav-desktop { display: none; }
-}
-/* desktop */
-@media (min-width: 55rem) {
-    .nav-mobile { display: none; }
-}
-
-.nav-desktop {
-    position: fixed;
-    width: 100%;
-    text-align: center;
-    background-color: $color-light;
-    border-bottom: 1px solid $color-gray;
-    z-index: 20;
-}
-.nav-desktop a {
-    display: inline-block;
-    margin: 0 1rem;
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    padding: 1rem;
-}
-.nav-desktop a.active {
-    border-bottom: 0.3rem solid $color-gray;
-}
-.nav-desktop-title {
-    font-size: 1.4rem;
-    margin: auto 2rem;
-    font-family: 'DM Serif Display', serif;
 }
 
 .title {
