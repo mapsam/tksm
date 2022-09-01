@@ -1,13 +1,13 @@
 import RSVP from '../components/Rsvp';
+import Content from '../components/Content';
 import Block from '../components/Block';
 
 export default function Index() {
   return (
-    <div className="content">
+    <Content name="Répondez S'il Vous Plaît">
       <Block id="RSVP">
-        <h1 className="title">RSVP</h1>
         <RSVP />
       </Block>
-    </div>
+    </Content>
   )
 }

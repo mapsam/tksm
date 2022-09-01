@@ -1,11 +1,12 @@
+import Content from '../components/Content';
 import Block from '../components/Block';
 
 export default function Page() {
   return (
-    <div className="content">
+    <Content
+      name="FAQ"
+      summary="Didn't find your question? You can text Sam @ 651-343-6555 or email @ matthews.sam@gmail.com.">
       <Block id="FAQ">
-        <h1 className="title">FAQ</h1>
-
         <h2>How did we meet?</h2>
         <p>We met as undergrads while attending the University of Wisconsin-Madison. Taylor in a house of 8 "biddies", Sam gratefully sleeping on their couch. Sam moved to Seattle after graduation in 2012, Taylor paid a visit, and the rest is history. We've both lived together in Seattle for nearly a decade.</p>
 
@@ -20,10 +21,7 @@ export default function Page() {
 
         <h2>How do I RSVP?</h2>
         <p>In late Spring 2023 we'll send emails to have you digitally RSVP for the wedding. Know you can't make it? That's a shame! Feel free to let us know in advance by texting Sam @ 651-343-6555.</p>
-
-        <h2>More questions?</h2>
-        <p>You can text Sam @ 651-343-6555 or email @ matthews.sam@gmail.com.</p>
       </Block>
-    </div>
+    </Content>
   )
 }

@@ -1,14 +1,13 @@
+import Content from '../components/Content';
 import Block from '../components/Block';
 
 export default function Page() {
   return (
-    <div className="content">
-      <Block id="ACCOMODATIONS">
-        <h1 className="title">Accomodations</h1>
-        <p>No matter where you stay, we recommend booking accomodations as soon as possible. August in Seattle is prime outdoor and cruise season.</p>
-      </Block>
+    <Content
+      name="Accomodations"
+      summary="No matter where you stay, we recommend booking accomodations as soon as possible. August in Seattle is prime outdoor and cruise season.">
 
-      <Block id="HOTEL-BLOCK" style={{ backgroundColor: '#F2F0F2' }}>
+      <Block id="HOTEL-BLOCK">
         <h1>Hotel Block</h1>
         <p>
           For those traveling from out of town, <strong><a href="https://www.wac.net/stay-at-the-inn/reservations/" target="_blank">The Inn at the Washington Athletic Club (WAC)</a></strong> is offering us special rates for our wedding weekend. Located in downtown Seattle and
@@ -21,7 +20,7 @@ export default function Page() {
         </p>
       </Block>
 
-      <Block id="NEIGHBORHOODS" style={{ backgroundColor: '#F2F0F2' }}>
+      <Block id="NEIGHBORHOODS">
         <h1>Neighborhoods</h1>
         <p>The urban villages of Seattle are what really make this city shine. We strongly recommend finding a spot for you and your crew to share with Airbnb or VRBO, it's likely the more affordable option, especially if you plan to extend your trip.</p>
         <p>Some neighborhood recommendations:</p>
@@ -33,7 +32,7 @@ export default function Page() {
         </ul>
       </Block>
 
-      <Block id="ALTERNATIVE-HOTELS" style={{ backgroundColor: '#F2F0F2' }}>
+      <Block id="ALTERNATIVE-HOTELS">
         <h1>Alternative hotels</h1>
         <p>
           If the hotel block is no longer available or you'd like to look at some other hotels in the downtown area.
@@ -44,6 +43,6 @@ export default function Page() {
           <li><a href="https://www.expedia.com/Seattle-Hotels-Motif-Seattle.h50947.Hotel-Information" target="_blank">Motif (Hyatt)</a></li>
         </ul>
       </Block>
-    </div>
+    </Content>
   )
 }

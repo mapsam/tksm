@@ -23,6 +23,7 @@ export default function Nav(props: any) : any {
       <NavLink href="/travel" children="TRAVEL" clickAction={setIsOpen}/>
       <NavLink href="/accomodations" children="ACCOMODATIONS" clickAction={setIsOpen}/>
       <NavLink href="/seattle" children="VISIT SEATTLE" clickAction={setIsOpen}/>
+      <NavLink href="/faq" children="FAQ" clickAction={setIsOpen}/>
       <NavLink href="/rsvp" children="RSVP" clickAction={setIsOpen}/>
     </nav>
     </React.Fragment>

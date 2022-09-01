@@ -1,4 +1,4 @@
-import RSVP from '../components/Rsvp';
+import Content from '../components/Content';
 import Block from '../components/Block';
 import { useState } from 'react';
 
@@ -6,12 +6,8 @@ export default function Index() {
   const [ showImage, setShowImage ] = useState<boolean | null>(true);
 
   return (
-    <div className="content">
-      <Block id="SCHEDULE">
-        <h1 className="title">Schedule</h1>
-      </Block>
-
-      <Block id="AUG-11" style={{ backgroundColor: '#F2F0F2' }}>
+    <Content name="Schedule">
+      <Block id="AUG-11">
         <h1>Friday, August 11<sup>th</sup> - Traveler's shindig</h1>
         <p>
           Time: 6pm - 9pm<br />
@@ -24,7 +20,7 @@ export default function Index() {
         </p>
       </Block>
 
-      <Block id="AUG-12" style={{ backgroundColor: '#F2F0F2' }}>
+      <Block id="AUG-12">
         <h1>Saturday, August 12<sup>th</sup> - Wedding day!</h1>
         <p>
           Time: 5pm - Midnight<br />
@@ -57,7 +53,7 @@ export default function Index() {
         </p>*/}
       </Block>
 
-      <Block id="AUG-13" style={{ backgroundColor: '#F2F0F2' }}>
+      <Block id="AUG-13">
         <h1>Sunday, August 13<sup>th</sup> - Picnic</h1>
         <p>
           Time: 10am - 1pm<br />
@@ -67,6 +63,6 @@ export default function Index() {
           Last chance to hug that uncle of yours. Come grab coffee and a baked good in one of Seattle's lovely parks, get some fresh air, and bid farewell to the newlyweds.
         </p>
       </Block>
-    </div>
+    </Content>
   )
 }
