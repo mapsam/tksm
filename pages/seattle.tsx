@@ -9,8 +9,6 @@ export default function Page() {
   const [ groupedLocations, setGroupedLocations ] = useState(groupByKey('group', locations));
   useEffect(() => {}, [group, groupedLocations]);
 
-  console.l
-
   function reGroup(e) {
     e.preventDefault();
     setGroup(e.target.value);

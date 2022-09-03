@@ -1,6 +1,4 @@
-import type { LocationItem } from './types';
-
-export function groupByKey(key: string, list: Array<LocationItem>) {
+export function groupByKey(key: string, list: Array<any>) {
   return list.reduce((memo, item) => {
     const keyName = item[key];
     if (!(keyName in memo)) memo[keyName] = [];
