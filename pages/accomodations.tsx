@@ -41,6 +41,9 @@ export default function Page() {
           <li><a href="https://www.sonesta.com/royal-sonesta/wa/seattle/alexis-royal-sonesta-hotel-seattle/" target="_blanke">Hotel Alexis</a></li>
           <li><a href="https://hotelandra.com/" target="_blank">Hotel Andra</a></li>
           <li><a href="https://www.expedia.com/Seattle-Hotels-Motif-Seattle.h50947.Hotel-Information" target="_blank">Motif (Hyatt)</a></li>
+          <li><a href="https://www.monaco-seattle.com/" target="_blank">Kimpton Hotel Monaco</a></li>
+          <li><a href="https://www.fairmont.com/seattle/" target="_blank">Fairmont Olympic</a></li>
+          <li><a href="https://www.hilton.com/en/hotels/seashhf-hilton-seattle/" target="_blank">Hilton Seattle</a></li>
         </ul>
       </Block>
     </Content>
