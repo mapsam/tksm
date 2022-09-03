@@ -25,7 +25,7 @@ export default function Page() {
         <h1>Rideshare</h1>
         <p>Lyft and Uber are readily available and easily accessible throughout the city and can help you easily explore all of the places we love.</p>
         <p><strong>Discount code</strong></p>
-        <p>We want nothing more than for our guests to take advantage of being in a big city and to avoid the worst part of any wedding -- deciding who will be the designated driver. A Lyft code will be available for everyone attending the wedding. The code will be provided at the venue for you to use to get home after our wedding. Come prepared to party, drink, dance, and have fun, and we’ll make sure you get home safely.</p>
+        <p>We want nothing more than for our guests to take advantage of being in a big city and to avoid the worst part of any wedding -- deciding who will be the designated driver. A Lyft code will be available at the venue for you to get home after our wedding. Come prepared to party, drink, dance, and have fun, and we’ll make sure you get home safely.</p>
       </Block>
     </Content>
   );
