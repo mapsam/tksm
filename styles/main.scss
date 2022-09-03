@@ -239,10 +239,23 @@ form button {
     padding: 0.25rem 1rem;
 }
 
+.location-filter {
+    padding: 1rem;
+    background-color: $color-white;
+    color: $color-medium;
+    border: 0.1rem solid $color-medium;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    &.selected {
+        background-color: $color-medium;
+        color: $color-white;
+        font-weight: bold;
+    }
+}
 .location {
     margin-bottom: 2rem;
 }
-// .location-metadata {}
 .location-metadata, .location-metadata * {
     font-family: 'Roboto Mono', monospace;
     font-size: 1rem;

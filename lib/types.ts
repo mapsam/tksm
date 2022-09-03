@@ -14,9 +14,12 @@ export interface APIResponse {
 
 export interface LocationItem {
   name: string,
-  description?: string,
-  lng: number,
-  lat: number,
+  group: string,
+  neighborhood: string,
   link: string,
-  address?: string
+  address: string
+  description: string,
+  lng?: number,
+  lat?: number,
+  time?: string
 }
