@@ -10,8 +10,8 @@ import React from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const pageName = router.pathname.replace('/', '').toUpperCase();
-  const title = `${pageName ? pageName + ' - ': ''}Kelleher/Matthews Wedding`;
+  const pageName: string = router.pathname.replace('/', '').toUpperCase();
+  const title: string = `${pageName ? pageName + ' - ': ''}Kelleher/Matthews Wedding`;
 
   return (
     <React.Fragment>

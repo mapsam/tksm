@@ -18,6 +18,7 @@ export default function Index() {
           Say hi to the Matthews/Varner &amp; Kelleher/Stuecker families,
           grab a drink and a bite, and meet some of our favorite locals.
         </p>
+        <p>More details to come.</p>
       </Block>
 
       <Block id="AUG-12">

@@ -5,7 +5,8 @@ export default function Page() {
   return (
     <Content
       name="FAQ"
-      summary="Didn't find your question? You can text Sam @ 651-343-6555 or email @ matthews.sam@gmail.com.">
+      summary="Didn't find your question? You can text Sam @ 651-343-6555 or email @ matthews.sam@gmail.com."
+      img="sam-taylor-sanjuans.png">
       <Block id="FAQ">
         <h2>How did we meet?</h2>
         <p>We met as undergrads while attending the University of Wisconsin-Madison. Taylor in a house of 8 "biddies", Sam gratefully sleeping on their couch. Sam moved to Seattle after graduation in 2012, Taylor paid a visit, and the rest is history. We've both lived together in Seattle for nearly a decade.</p>

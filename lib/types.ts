@@ -21,5 +21,6 @@ export interface LocationItem {
   description: string,
   lng?: number,
   lat?: number,
-  time?: string
+  time?: string,
+  maps?: string
 }

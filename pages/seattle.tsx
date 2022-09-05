@@ -22,12 +22,12 @@ export default function Page() {
   return (
     <Content
       name="Visit Seattle"
-      img="seattle-pike-market-2.jpg"
+      img="seattle-pike-market-fish.png"
       summary="Below is a combination of some of our favorite places in the area as well as must-see Seattle spots.">
 
       <Block id="LOCATIONS">
         <p>You can filter by event type or neighborhood, depending on how you want to explore the area.</p>
-        <button className={group === 'group' ? 'location-filter selected' : 'location-filter'} value="group" key="button-group" onClick={reGroup}>type</button>
+        <button className={group === 'group' ? 'location-filter selected' : 'location-filter'} value="group" key="button-group" onClick={reGroup}>category</button>
         <button className={group === 'neighborhood' ? 'location-filter selected' : 'location-filter'} value="neighborhood" key="button-neighborhood" onClick={reGroup}>neighborhood</button>
         {locationElements}
       </Block>

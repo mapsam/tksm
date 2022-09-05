@@ -38,8 +38,9 @@ export default [
   {
     name: 'Pike Place Market',
     group: 'Iconic Seattle',
-    description: 'Toss a fish, eat some cheese, buy some flowers. If you\'ve ever thought about Seattle, you\'ve thought about this place. Littered with lovely restaurants and trinket shops. Grab some food or drinks in Belltown nearby.',
+    description: 'Toss a fish, eat some cheese, buy some flowers. If you\'ve ever thought about Seattle, you\'ve thought about this place. Littered with lovely restaurants and trinket shops. We recommend the smoked salmon from Pure Food Fish Market, soup and chicken from Turkish Delight, and sampling yogurt from Ellenos. Grab some food or drinks in Belltown nearby.',
     address: '85 Pike St, Seattle, WA 98101',
+    maps: 'https://g.page/pikeplacepublicmarket?share',
     lng: -122.34180380050668,
     lat: 47.60943555021687,
     link: 'https://www.pikeplacemarket.org',
@@ -106,6 +107,15 @@ export default [
     lng: -122.33538846073634
   },
   {
+    name: 'Cloudburst Brewing',
+    group: 'Breweries',
+    description: 'Award winning beers near Pike Place Market. Grab an IPA and some lunch nearby.',
+    neighborhood: 'Downtown',
+    address: '2116 Western Ave, Seattle, WA 98121',
+    maps: 'https://goo.gl/maps/4UQnLNzi8Snc53bi8',
+    link: 'http://cloudburstbrew.com/'
+  },
+  {
     name: 'Westland Distillery',
     group: 'Breweries',
     description: 'Looking for some real American peat? Westland Distillery has the best single malt in Seattle. Go for a flight, stay for a cocktail and a tour. Westland is on the same block as the wedding venue. Perhaps a good spot to prefunk before the ceremony?',
@@ -155,6 +165,17 @@ export default [
     link: 'http://www.elliottbaybook.com/',
     neighborhood: 'Capitol Hill'
   },
+  {
+    name: 'Central Library',
+    group: 'Arts & Culture',
+    description: 'Walk around the beautiful and whacky, flagship library in Downtown. Designed by Dutch architect Rem Koolhaas, the building offers spectacular attrium views, a never-ending spiral of books, and automatic book sorting.',
+    address: '1521 10th Ave, Seattle, WA 98122',
+    lng: -122.31960954361946,
+    lat: 47.61467897908314,
+    link: 'https://www.spl.org/hours-and-locations/central-library',
+    neighborhood: 'Capitol Hill'
+  },
+
   // {
   //   name: 'Olympic Sculpture Garden',
   //   group: 'Outdoors',
@@ -245,5 +266,39 @@ export default [
     lng: -122.34008553708115,
     lat: 47.63783577526858,
     neighborhood: 'Fremont'
+  },
+  {
+    name: 'Storyville Coffee',
+    group: 'Coffee',
+    description: 'Located inside Pike Place market on the 2nd floor. Get a fancy pour over and walk around the market.',
+    address: '94 Pike St #34 Seattle, WA 98101',
+    link: 'https://storyville.com/pages/locations',
+    neighborhood: 'Downtown'
+  },
+  {
+    name: 'Victrola Coffee Roasters',
+    group: 'Coffee',
+    description: 'Along Pike St in Capitol Hill, great spot to grab table and do some people watching.',
+    address: '310 E Pike St, Seattle, WA 98122',
+    link: 'http://www.victrolacoffee.com/',
+    neighborhood: 'Capitol Hill'
+  },
+  {
+    name: 'Milstead & Co',
+    group: 'Coffee',
+    description: 'Sam\'s favorite snobby coffee in Seattle. Art lines the walls of this rustic-chic coffeehouse that pours brews & sells bags of beans too. Grab a cup and walk the canal or visit the Fremont troll under the bridge.',
+    address: '754 N 34th St, Seattle, WA 98103',
+    maps: 'https://goo.gl/maps/fs4Mhp9ZfJdP6Mcp8',
+    link: 'http://www.milsteadandco.com/',
+    neighborhood: 'Fremont'
+  },
+  {
+    name: 'Espresso Vivace',
+    group: 'Coffee',
+    description: 'Taylor\'s favorite coffee in Seattle that sits along Broadway in Capitol Hill, offering infinite bars, restaurants, and thrift boutique shops.',
+    address: '532 Broadway E, Seattle, WA 98102',
+    maps: 'https://goo.gl/maps/QahRZjUqgnmoPhCe6',
+    link: 'http://espressovivace.com/',
+    neighborhood: 'Capitol Hill'
   }
 ];
