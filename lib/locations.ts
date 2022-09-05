@@ -173,7 +173,7 @@ export default [
     lng: -122.31960954361946,
     lat: 47.61467897908314,
     link: 'https://www.spl.org/hours-and-locations/central-library',
-    neighborhood: 'Capitol Hill'
+    neighborhood: 'Downtown'
   },
 
   // {
