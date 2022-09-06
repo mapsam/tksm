@@ -3,13 +3,14 @@ import Content from '../components/Content';
 import Block from '../components/Block';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
+import travelImage from '../public/sam-taylor-lightrail.png';
 
 export default function Page() {
   return (
     <Content
       name="Travel"
       summary="Traveling to and getting around Seattle is a breeze! ✈️"
-      img="sam-taylor-lightrail.png">
+      img={travelImage}>
       <Block id="AIRPORT">
         <h1>Airport</h1>
         <p>If you’re coming from out of town, we recommend flying into Seattle-Tacoma International Airport (SEA). Plenty of rental car companies are available here, but we recommend taking advantage of city living and utilizing public transportation (and on wedding day we want you to stay late dancing and safely help us drink all of the alcohol we got).</p>

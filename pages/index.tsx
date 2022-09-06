@@ -1,25 +1,13 @@
 import Block from '../components/Block';
-import { useState } from 'react';
+import Content from '../components/Content';
+import indexImage from '../public/title-smile.png';
 
 export default function Index() {
-  const [ showImage, setShowImage ] = useState<boolean | null>(true);
-
   return (
-    <div className="content">
-      <Block id="TITLE" backgroundClass="color-light-bg">
-        <h1 className="title">Taylor &amp; Sam<br />are getting married!</h1>
-
-        <div
-          className="title-image-container"
-          onMouseEnter={() => setShowImage(false)}
-          onMouseLeave={() => setShowImage(true)}
-          onTouchStart={() => setShowImage(false)}
-          onTouchEnd={() => setShowImage(true)}
-          onTouchCancel={() => setShowImage(true)}>
-          <div className="title-image" style={{ backgroundImage: `url('/title-laugh.png')`}}></div>
-          {showImage && <div className="title-image" style={{ backgroundImage: `url('/title-smile.png')`}}></div> }
-        </div>
-      </Block>
+    <Content
+      name="Taylor & Sam are getting married!"
+      summary=""
+      img={indexImage}>
 
       <Block id="INFO">
         <h2><strong>
@@ -38,6 +26,6 @@ export default function Index() {
         <p>Warmly,<br />
            Sam &amp; Taylor</p>
       </Block>
-    </div>
+    </Content>
   )
 }

@@ -1,9 +1,10 @@
 import type { ReactNode } from 'react';
 import Block from './Block';
+import Image from 'next/image';
 
 interface ContentProps {
   name: string,
-  img?: string,
+  img?: any,
   summary?: string,
   children?: ReactNode,
 }
@@ -15,7 +16,7 @@ export default function Content(props: ContentProps) {
         <h1 className="title">{props.name}</h1>
         {props.img &&
           <div className="title-image-container">
-            <div className="title-image" style={{ backgroundImage: `url('/${props.img}')`}}></div>
+            <Image src={props.img} placeholder="blur" layout="responsive" />
           </div>
         }
         {props.summary &&

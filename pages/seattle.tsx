@@ -3,6 +3,7 @@ import Content from '../components/Content';
 import Block from '../components/Block';
 import LocationGroup from '../components/LocationGroup';
 import locations, { groupByKey } from '../lib/locations';
+import seattleImage from '../public/seattle-pike-market-fish.png';
 
 export default function Page() {
   const [ group, setGroup ] = useState('group');
@@ -22,7 +23,7 @@ export default function Page() {
   return (
     <Content
       name="Visit Seattle"
-      img="seattle-pike-market-fish.png"
+      img={seattleImage}
       summary="Below is a combination of some of our favorite places in the area as well as must-see Seattle spots.">
 
       <Block id="LOCATIONS">
