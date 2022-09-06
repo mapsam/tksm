@@ -10,13 +10,12 @@ export default function Page() {
       <Block id="HOTEL-BLOCK">
         <h1>Hotel Block</h1>
         <p>
-          For those traveling from out of town, <strong><a href="https://www.wac.net/stay-at-the-inn/reservations/" target="_blank">The Inn at the Washington Athletic Club (WAC)</a></strong> is offering us special rates for our wedding weekend. Located in downtown Seattle and
+          <strong><a href="https://www.wac.net/stay-at-the-inn/reservations/" target="_blank">The Inn at the Washington Athletic Club (WAC)</a></strong> is offering us special rates for our wedding weekend. Located in downtown Seattle and
           above the historic athletic club, you'll have access to beautiful rooms, the spa, and a
           variety of lounges and restaurants.
         </p>
         <p>
-          How to book: TBD<br />
-          The special rate is applicable before and after the wedding event dates.
+          <strong>How to book</strong>: reservations can be made by emailing innreservations@wac.net or calling 206-464-3055 or 800-275-3775 by Friday, July 14, 2023. Identify yourself as part of the "Matthews/Kelleher Wedding" to ensure the group rate is received. The special rate is applicable before and after the wedding event dates.
         </p>
       </Block>
 
