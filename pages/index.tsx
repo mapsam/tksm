@@ -1,13 +1,15 @@
 import Block from '../components/Block';
 import Content from '../components/Content';
-import indexImage from '../public/title-smile.png';
+import indexImage from '../public/title-smile-sized.png';
+import hoverImage from '../public/title-laugh-sized.png';
 
 export default function Index() {
   return (
     <Content
       name="Taylor & Sam are getting married!"
       summary=""
-      img={indexImage}>
+      img={indexImage}
+      imgHover={hoverImage}>
 
       <Block id="INFO">
         <h2><strong>
