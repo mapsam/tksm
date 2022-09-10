@@ -157,6 +157,9 @@ h1, h2, h1 *, h2 * {
     border-radius: 1rem;
     overflow: hidden;
 }
+.title-image-container.hidden {
+    display: none;
+}
 
 /* desktop */
 @media (min-width: 45rem) {

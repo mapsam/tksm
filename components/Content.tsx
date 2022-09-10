@@ -26,13 +26,17 @@ export default function Content(props: ContentProps) {
         <h1 className="title">{props.name}</h1>
         {props.img &&
           <div
-            className="title-image-container"
+            className={!hoverImage ? "title-image-container" : "title-image-container hidden"}
             onMouseEnter={() => toggleHover(true)}
             onMouseLeave={() => toggleHover(false)}
             onTouchStart={() => toggleHover(true)}
             onTouchEnd={() => toggleHover(false)}>
-              {!hoverImage && <Image src={props.img} placeholder="blur" layout="responsive" /> }
-              {hoverImage && <Image src={props.imgHover || props.img} placeholder="blur" layout="responsive" /> }
+              <Image priority={true} src={props.img} placeholder="blur" layout="responsive" />s
+          </div>
+        }
+        {props.imgHover &&
+          <div className={hoverImage ? "title-image-container" : "title-image-container hidden"}>
+              <Image priority={true} src={props.imgHover || props.img} placeholder="blur" layout="responsive" />
           </div>
         }
         {props.summary &&
