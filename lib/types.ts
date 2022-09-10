@@ -1,14 +1,14 @@
-export interface APIPostRequest {
-  firstname?: string;
-  lastname?: string;
-  attending?: boolean;
-  email?: string;
+export interface Person {
+  firstname: string|null;
+  lastname: string|null;
+  attending: boolean;
+  email: string|null;
 }
 
+export type APIPostBody = Array<Person>;
 export type APIErrors = Array<string>;
-
 export interface APIResponse {
-  data?: APIPostRequest;
+  data?: APIPostBody;
   errors?: APIErrors;
 }
 

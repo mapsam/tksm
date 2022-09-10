@@ -1,18 +1,27 @@
-import type { APIPostRequest, APIErrors, APIResponse } from '../lib/types';
-import React, { useState } from 'react';
+import type { Person, APIErrors, APIResponse, APIPostBody } from '../lib/types';
+import React, { useState, useEffect } from 'react';
+import RsvpPerson from './RsvpPerson';
+
+const defaultPerson: Person = {
+  firstname: null,
+  lastname: null,
+  email: null,
+  attending: true
+};
 
 export default function RSVP() {
-  const [ rsvpData, setRsvpData ] = useState<APIPostRequest>({});
   const [ errors, setErrors ] = useState<APIErrors>([]);
   const [ success, setSuccess ] = useState<boolean>(false);
   const [ submitting, setSubmitting ] = useState<boolean>(false);
-  const allowRSVPs: boolean = false;
+  const [ people, setPeople ] = useState([defaultPerson]);
+  const allowRSVPs: boolean = true;
 
-  function update(key: string, val: any) {
-    const d: APIPostRequest = { ... rsvpData };
-    d[key] = val;
-    setRsvpData(d);
+  function addPerson(e) {
+    e.preventDefault();
+    setPeople([...people, defaultPerson]);
   }
+
+  useEffect(() => {}, [people]);
 
   async function sendRSVP() {
     setSubmitting(true);
@@ -21,7 +30,7 @@ export default function RSVP() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(rsvpData)
+      body: JSON.stringify(people)
     });
 
     const { errors }: APIResponse = await response.json();
@@ -64,73 +73,22 @@ export default function RSVP() {
 
     {!success &&
       <form className="rsvp-form" onSubmit={sendRSVP}>
-        <p>Please RSVP by RSVP_DEADLINE! If you need to submit for more than one person, refresh the page and submit again.</p>
+        <p>Please RSVP for each individual in your party. You can add more individuals by clicking "add person" below. You can also submit the form separately for each person.</p>
+        <p>If you are not attending, please still fill out the form!</p>
 
-        <div className="field">
-          <label className="label">Firstname</label>
-          <div className="control">
-            <input className="input" type="text" placeholder="" onChange={e => update('firstname', e.target.value)}></input>
-          </div>
-        </div>
+        <div className="rsvp-people">
 
-        <div className="field">
-          <label className="label">Lastname</label>
-          <div className="control">
-            <input className="input" type="text" placeholder="" onChange={e => update('lastname', e.target.value)}></input>
-          </div>
-        </div>
-
-        <div className="field">
-          <label className="label">Email</label>
-          <div className="control">
-            <input className="input" type="text" placeholder="" onChange={e => update('email', e.target.value)}></input>
-          </div>
+          {people &&
+            people.map((person, idx) => {
+              return <RsvpPerson person={person} people={people} effect={setPeople} index={idx} />
+            })
+          }
         </div>
 
         <div className="field">
           <div className="control">
-            <input type="radio" id="yes" name="question" onChange={e => update('attending', true)} checked />
-            <label htmlFor="yes">Attending ☺️</label>
-            <input type="radio" id="no" name="question" onChange={e => update('attending', false)} />
-            <label htmlFor="no">Not attending 😢</label>
-          </div>
-        </div>
-
-        {/* <div className="field">
-          <label className="label">Food option</label>
-          <div className="control">
-              <div className="select">
-              <select>
-                  <option>Select one...</option>
-                  <option>Meat</option>
-                  <option>Vegetarian</option>
-                  <option>Vegan</option>
-                  <option>GF</option>
-              </select>
-              </div>
-          </div>
-        </div>
-
-        <div className="field">
-          <label className="label">Vaccination confirmation</label>
-          <div className="control">
-            <label className="checkbox is-size-5">
-              <input className="mr-2" type="checkbox"></input>
-              I am vaccinated for COVID-19 👍
-            </label>
-          </div>
-        </div>
-
-        <div className="field">
-          <label className="label">Secret phrase</label>
-          <div className="control">
-            <input className="input" type="text" placeholder=""></input>
-          </div>
-        </div> */}
-
-        <div className="field">
-          <div className="control">
-            <button className={submitting ? "button is-primary is-size-5 is-loading" : "button is-primary is-size-5"} onClick={sendRSVP}>Submit</button>
+            <button className="button" onClick={addPerson}>Add person</button>
+            <button className="button color-light-bg" style={{ float: 'right' }} onClick={sendRSVP}>{submitting ? "Submitting RSVP ..." : "Submit"}</button>
           </div>
         </div>
       </form>

@@ -53,6 +53,6 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 
     return res.json({ data: req.body });
   } else {
-    return res.status(400).json({ message: 'Not a valid HTTP method' });
+    return res.status(400).json({ message: `This API does not support ${req.method} requests.` });
   }
 }
