@@ -10,11 +10,11 @@ const defaultPerson: Person = {
 };
 
 export default function RSVP() {
+  const [ success, setSuccess ] = useState<Array<Person>>([]);
   const [ errors, setErrors ] = useState<APIErrors>([]);
-  const [ success, setSuccess ] = useState<boolean>(false);
   const [ submitting, setSubmitting ] = useState<boolean>(false);
   const [ people, setPeople ] = useState([defaultPerson]);
-  const allowRSVPs: boolean = true;
+  const allowRSVPs: boolean = false;
 
   function addPerson(e) {
     e.preventDefault();
@@ -23,7 +23,9 @@ export default function RSVP() {
 
   useEffect(() => {}, [people]);
 
-  async function sendRSVP() {
+  async function sendRSVP(e) {
+    e.preventDefault();
+
     setSubmitting(true);
     const response = await fetch('/api/rsvp', {
       method: 'POST',
@@ -33,15 +35,14 @@ export default function RSVP() {
       body: JSON.stringify(people)
     });
 
-    const { errors }: APIResponse = await response.json();
+    const { errors, data }: APIResponse = await response.json();
 
     setSubmitting(false);
 
     if (response.status !== 200) {
       setErrors(errors || ['Something went wrong.']);
     } else {
-      setErrors([]);
-      setSuccess(true);
+      setSuccess(data);
     }
   }
 
@@ -71,9 +72,9 @@ export default function RSVP() {
       </div>
     }
 
-    {!success &&
+    {success.length === 0 &&
       <form className="rsvp-form" onSubmit={sendRSVP}>
-        <p>Please RSVP for each individual in your party. You can add more individuals by clicking "add person" below. You can also submit the form separately for each person.</p>
+        <p>Please RSVP for each individual in your party. You can add more individuals by clicking "add person" below. You can also submit the form separately for each person. Lastly, a friendly reminder that kids are not invited to the wedding. Sorry for any inconvenience!</p>
         <p>If you are not attending, please still fill out the form!</p>
 
         <div className="rsvp-people">
@@ -88,25 +89,25 @@ export default function RSVP() {
         <div className="field">
           <div className="control">
             <button className="button" onClick={addPerson}>Add person</button>
-            <button className="button color-light-bg" style={{ float: 'right' }} onClick={sendRSVP}>{submitting ? "Submitting RSVP ..." : "Submit"}</button>
+            <input type="submit" className="button color-light-bg" value={submitting ? "Submitting RSVP ..." : "Submit"} style={{ float: 'right' }} />
           </div>
         </div>
       </form>
     }
 
-    {success &&
+    {success.length > 0 &&
       <div className="form-response">
-        {rsvpData.attending &&
-          <p className="has-text-weight-bold">
-            ❤️ Hooray! We're thrilled you'll be joining us. We will reach out via email with more details. If you need to submit an RSVP for another person refresh this page and submit again.
-          </p>
-        }
-
-        {!rsvpData.attending &&
-          <p className="has-text-weight-bold">
-            ❤️ Bummer! We're sorry you won't be able to make it. If you need to submit an RSVP for another person refresh this page and submit again.
-          </p>
-        }
+        <p className="has-text-weight-bold">
+          ❤️ Thanks! If you're attending, we're thrilled! If you can't, we get it. We'll miss you! Here's the information we got:
+        </p>
+        <p>
+          <ul>
+            {success.map((p: Person) => {
+              return <li>{p.firstname} {p.lastname} ({p.email}) <strong>attending: {p.attending ? 'yes ☺️' : 'no 😢'}</strong></li>
+            })}
+          </ul>
+        </p>
+        <p>If this information looks correct, you're all set. If you need to make a change, send Sam a message at matthews.sam@gmail.com. If you need to submit more RSVPs, refresh the page.</p>
       </div>
     }
     </React.Fragment>

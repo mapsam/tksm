@@ -1,9 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { sheets_v4, Auth } from 'googleapis';
+import type { APIErrors, Person  } from '../../../lib/types';
 
 import { google } from 'googleapis';
 import { validateRequestBody, log } from '../../../lib/api';
-import { APIErrors } from '../../../lib/types';
 
 const sheets: sheets_v4.Sheets = google.sheets('v4');
 
@@ -34,16 +34,9 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         range: 'RAW',
         auth,
         requestBody: {
-          range: 'RAW',
-          values: [
-            [
-              req.body.firstname,
-              req.body.lastname,
-              req.body.attending,
-              req.body.email,
-
-            ]
-          ]
+          values: req.body.map((p: Person) => {
+            return [p.firstname, p.lastname, p.attending, p.email];
+          })
         }
       });
     } catch (err) {

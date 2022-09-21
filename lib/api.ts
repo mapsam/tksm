@@ -1,5 +1,5 @@
 import type { NextApiRequest } from 'next';
-import type { APIErrors } from './types';
+import type { APIErrors, Person } from './types';
 import v from '@mapbox/fusspot';
 
 export function validateRequestBody(body: any) : APIErrors[] {
@@ -13,7 +13,7 @@ export function validateRequestBody(body: any) : APIErrors[] {
     })
   );
 
-  body.forEach((person) => {
+  body.forEach((person: Person) => {
     try {
       validatePerson(person);
     } catch (err) {

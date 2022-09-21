@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 
 function NavLink({ children, href, clickAction }) {
   const router = useRouter();
-  const active = router.asPath === href ? 'active' : '';
+  const active = router.pathname === href ? 'active' : '';
 
   const handleClick = (e: any) => {
     e.preventDefault();
