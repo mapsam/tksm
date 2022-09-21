@@ -77,8 +77,7 @@ export default function RSVP() {
         <p>Please RSVP for each individual in your party. You can add more individuals by clicking "add person" below. You can also submit the form separately for each person. Lastly, a friendly reminder that kids are not invited to the wedding. Sorry for any inconvenience!</p>
         <p>If you are not attending, please still fill out the form!</p>
 
-        <div className="rsvp-people">
-
+        <div className="rsvp-people" key="rsvp-form-people">
           {people &&
             people.map((person, idx) => {
               return <RsvpPerson person={person} people={people} effect={setPeople} index={idx} />
@@ -86,7 +85,7 @@ export default function RSVP() {
           }
         </div>
 
-        <div className="field">
+        <div className="field" key="rsvp-form-buttons">
           <div className="control">
             <button className="button" onClick={addPerson}>Add person</button>
             <input type="submit" className="button color-light-bg" value={submitting ? "Submitting RSVP ..." : "Submit"} style={{ float: 'right' }} />
