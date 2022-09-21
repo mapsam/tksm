@@ -206,10 +206,17 @@ form label  {
     margin-right: 2rem;
 }
 
-form button {
+form button,
+form input[type=submit] {
     padding: 0.75rem 1rem;
-    background-color: #fff;
-    border: 1px solid #c0c0c0;
+    background-color: $color-white;
+    border: 2px solid $color-gray;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.rsvp-person {
+    margin-bottom: 2rem;
 }
 
 .form-errors {

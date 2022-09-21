@@ -22,7 +22,7 @@ export default function Index() {
       </Block>
 
       <Block id="AUG-12">
-        <h1>Saturday, August 12<sup>th</sup> - Wedding day!</h1>
+        <h1>Saturday, August 12<sup>th</sup> - Wedding day</h1>
         <p>
           Time: 5pm - Midnight<br />
           Location: Metropolist<br />

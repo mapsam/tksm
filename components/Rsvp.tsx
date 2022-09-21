@@ -1,38 +1,48 @@
-import type { APIPostRequest, APIErrors, APIResponse } from '../lib/types';
-import React, { useState } from 'react';
+import type { Person, APIErrors, APIResponse, APIPostBody } from '../lib/types';
+import React, { useState, useEffect } from 'react';
+import RsvpPerson from './RsvpPerson';
+
+const defaultPerson: Person = {
+  firstname: null,
+  lastname: null,
+  email: null,
+  attending: true
+};
 
 export default function RSVP() {
-  const [ rsvpData, setRsvpData ] = useState<APIPostRequest>({});
+  const [ success, setSuccess ] = useState<Array<Person>>([]);
   const [ errors, setErrors ] = useState<APIErrors>([]);
-  const [ success, setSuccess ] = useState<boolean>(false);
   const [ submitting, setSubmitting ] = useState<boolean>(false);
+  const [ people, setPeople ] = useState([defaultPerson]);
   const allowRSVPs: boolean = false;
 
-  function update(key: string, val: any) {
-    const d: APIPostRequest = { ... rsvpData };
-    d[key] = val;
-    setRsvpData(d);
+  function addPerson(e) {
+    e.preventDefault();
+    setPeople([...people, defaultPerson]);
   }
 
-  async function sendRSVP() {
+  useEffect(() => {}, [people]);
+
+  async function sendRSVP(e) {
+    e.preventDefault();
+
     setSubmitting(true);
     const response = await fetch('/api/rsvp', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(rsvpData)
+      body: JSON.stringify(people)
     });
 
-    const { errors }: APIResponse = await response.json();
+    const { errors, data }: APIResponse = await response.json();
 
     setSubmitting(false);
 
     if (response.status !== 200) {
       setErrors(errors || ['Something went wrong.']);
     } else {
-      setErrors([]);
-      setSuccess(true);
+      setSuccess(data);
     }
   }
 
@@ -62,93 +72,41 @@ export default function RSVP() {
       </div>
     }
 
-    {!success &&
+    {success.length === 0 &&
       <form className="rsvp-form" onSubmit={sendRSVP}>
-        <p>Please RSVP by RSVP_DEADLINE! If you need to submit for more than one person, refresh the page and submit again.</p>
+        <p>Please RSVP for each individual in your party. You can add more individuals by clicking "add person" below. You can also submit the form separately for each person. Lastly, a friendly reminder that kids are not invited to the wedding. Sorry for any inconvenience!</p>
+        <p>If you are not attending, please still fill out the form!</p>
 
-        <div className="field">
-          <label className="label">Firstname</label>
-          <div className="control">
-            <input className="input" type="text" placeholder="" onChange={e => update('firstname', e.target.value)}></input>
-          </div>
+        <div className="rsvp-people" key="rsvp-form-people">
+          {people &&
+            people.map((person, idx) => {
+              return <RsvpPerson person={person} people={people} effect={setPeople} index={idx} />
+            })
+          }
         </div>
 
-        <div className="field">
-          <label className="label">Lastname</label>
+        <div className="field" key="rsvp-form-buttons">
           <div className="control">
-            <input className="input" type="text" placeholder="" onChange={e => update('lastname', e.target.value)}></input>
-          </div>
-        </div>
-
-        <div className="field">
-          <label className="label">Email</label>
-          <div className="control">
-            <input className="input" type="text" placeholder="" onChange={e => update('email', e.target.value)}></input>
-          </div>
-        </div>
-
-        <div className="field">
-          <div className="control">
-            <input type="radio" id="yes" name="question" onChange={e => update('attending', true)} checked />
-            <label htmlFor="yes">Attending ☺️</label>
-            <input type="radio" id="no" name="question" onChange={e => update('attending', false)} />
-            <label htmlFor="no">Not attending 😢</label>
-          </div>
-        </div>
-
-        {/* <div className="field">
-          <label className="label">Food option</label>
-          <div className="control">
-              <div className="select">
-              <select>
-                  <option>Select one...</option>
-                  <option>Meat</option>
-                  <option>Vegetarian</option>
-                  <option>Vegan</option>
-                  <option>GF</option>
-              </select>
-              </div>
-          </div>
-        </div>
-
-        <div className="field">
-          <label className="label">Vaccination confirmation</label>
-          <div className="control">
-            <label className="checkbox is-size-5">
-              <input className="mr-2" type="checkbox"></input>
-              I am vaccinated for COVID-19 👍
-            </label>
-          </div>
-        </div>
-
-        <div className="field">
-          <label className="label">Secret phrase</label>
-          <div className="control">
-            <input className="input" type="text" placeholder=""></input>
-          </div>
-        </div> */}
-
-        <div className="field">
-          <div className="control">
-            <button className={submitting ? "button is-primary is-size-5 is-loading" : "button is-primary is-size-5"} onClick={sendRSVP}>Submit</button>
+            <button className="button" onClick={addPerson}>Add person</button>
+            <input type="submit" className="button color-light-bg" value={submitting ? "Submitting RSVP ..." : "Submit"} style={{ float: 'right' }} />
           </div>
         </div>
       </form>
     }
 
-    {success &&
+    {success.length > 0 &&
       <div className="form-response">
-        {rsvpData.attending &&
-          <p className="has-text-weight-bold">
-            ❤️ Hooray! We're thrilled you'll be joining us. We will reach out via email with more details. If you need to submit an RSVP for another person refresh this page and submit again.
-          </p>
-        }
-
-        {!rsvpData.attending &&
-          <p className="has-text-weight-bold">
-            ❤️ Bummer! We're sorry you won't be able to make it. If you need to submit an RSVP for another person refresh this page and submit again.
-          </p>
-        }
+        <p className="has-text-weight-bold">
+          ❤️ Thanks! If you're attending, we're thrilled! If you can't, we get it. We'll miss you! Here's the information we got:
+        </p>
+        <p>
+          <ul>
+            {success.map((p: Person) => {
+              return <li>{p.firstname} {p.lastname} ({p.email}) <strong>attending: {p.attending ? 'yes ☺️' : 'no 😢'}</strong></li>
+            })}
+          </ul>
+        </p>
+        <p>If this information looks correct, you're all set. If you need to make a change, send Sam a message at matthews.sam@gmail.com. If you need to submit more RSVPs, refresh the page.</p>
       </div>
     }
     </React.Fragment>
