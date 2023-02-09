@@ -39,14 +39,15 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         range: 'RAW',
         auth,
         requestBody: {
-          values: req.body.map((p: Person) => {
+          values: validation.value.map((p: Person) => {
             return [
-              p.firstname,              // firstname
-              p.lastname,               // lastname
-              p.attending,              // attending
-              p.email,                  // email
-              submittedTime,            // time submited (on server)
-              JSON.stringify(req.body)  // raw post body for record keeping
+              p.firstname,                // firstname
+              p.lastname,                 // lastname
+              p.attending,                // attending
+              p.email,                    // email
+              submittedTime,              // time submited (on server)
+              JSON.stringify(req.body),   // raw post body for record keeping
+              JSON.stringify(req.headers) // request headers
             ];
           })
         }
@@ -56,7 +57,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
       return res.status(500).json({ errors: ['Uh oh, something went wrong. Send Sam an email at matthews.sam@gmail.com or text 651-343-6555!'] })
     }
 
-    return res.json({ data: req.body });
+    return res.json({ data: validation.value });
   } else {
     return res.status(400).json({ message: `This API does not support ${req.method} requests.` });
   }

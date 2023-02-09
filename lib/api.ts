@@ -5,10 +5,10 @@ import type { ValidationResult } from 'joi';
 import Joi from 'joi';
 
 const schema = Joi.array().items({
-  firstname: Joi.string().required(),
-  lastname: Joi.string().required(),
+  firstname: Joi.string().trim().required(),
+  lastname: Joi.string().trim().required(),
   attending: Joi.boolean().required(),
-  email: Joi.string().email().required()
+  email: Joi.string().email().trim().required()
 });
 
 export function validateRequestBody(body: APIPostBody) : ValidationResult {
