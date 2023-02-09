@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import type { sheets_v4, Auth } from 'googleapis';
-import type { APIErrors, Person  } from '../../../lib/types';
+import type { Person  } from '../../../lib/types';
+import type { ValidationResult } from 'joi';
 
 import { google } from 'googleapis';
 import { validateRequestBody, log } from '../../../lib/api';
@@ -13,8 +14,11 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   // append RSVP to spreadsheet
   if (req.method === 'POST') {
     // validate body
-    const errors: APIErrors[] = validateRequestBody(req.body);
-    if (errors.length) return res.status(400).json({ errors });
+    const validation: ValidationResult = validateRequestBody(req.body);
+    if (validation.error) {
+      const errors = validation.error.details.map((e) => `${e.message}, got: ${e.context.value}`);
+      return res.status(400).json({ errors });
+    }
 
     // set up google client
     const auth: Auth.GoogleAuth = new google.auth.GoogleAuth({
@@ -28,6 +32,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 
     // append row
     try {
+      const submittedTime = (new Date()).toISOString();
       await sheets.spreadsheets.values.append({
         spreadsheetId: process.env.GOOGLE_SPREADSHEET_ID,
         valueInputOption: 'USER_ENTERED',
@@ -35,13 +40,20 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         auth,
         requestBody: {
           values: req.body.map((p: Person) => {
-            return [p.firstname, p.lastname, p.attending, p.email];
+            return [
+              p.firstname,              // firstname
+              p.lastname,               // lastname
+              p.attending,              // attending
+              p.email,                  // email
+              submittedTime,            // time submited (on server)
+              JSON.stringify(req.body)  // raw post body for record keeping
+            ];
           })
         }
       });
     } catch (err) {
       console.log('ERROR', err);
-      return res.status(500).json({ errors: ['Uh oh, something went wrong. Send Sam a text 651-343-6555!'] })
+      return res.status(500).json({ errors: ['Uh oh, something went wrong. Send Sam an email at matthews.sam@gmail.com or text 651-343-6555!'] })
     }
 
     return res.json({ data: req.body });

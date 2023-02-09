@@ -14,7 +14,7 @@ export default function RSVP() {
   const [ errors, setErrors ] = useState<APIErrors>([]);
   const [ submitting, setSubmitting ] = useState<boolean>(false);
   const [ people, setPeople ] = useState([defaultPerson]);
-  const allowRSVPs: boolean = false;
+  const allowRSVPs: boolean = true;
 
   function addPerson(e) {
     e.preventDefault();
@@ -61,22 +61,8 @@ export default function RSVP() {
   return (
     <React.Fragment>
 
-    {errors.length > 0 &&
-      <div className="form-errors">
-        <p>There were some errors in the form!</p>
-        <ul>
-        {errors.map((error, i) => {
-          return <li key={`error_${i}`}>{error}</li>
-        })}
-        </ul>
-      </div>
-    }
-
     {success.length === 0 &&
       <form className="rsvp-form" onSubmit={sendRSVP}>
-        <p>Please RSVP for each individual in your party. You can add more individuals by clicking "add person" below. You can also submit the form separately for each person. Lastly, a friendly reminder that kids are not invited to the wedding. Sorry for any inconvenience!</p>
-        <p>If you are not attending, please still fill out the form!</p>
-
         <div className="rsvp-people" key="rsvp-form-people">
           {people &&
             people.map((person, idx) => {
@@ -88,10 +74,21 @@ export default function RSVP() {
         <div className="field" key="rsvp-form-buttons">
           <div className="control">
             <button className="button" onClick={addPerson}>Add person</button>
-            <input type="submit" className="button color-light-bg" value={submitting ? "Submitting RSVP ..." : "Submit"} style={{ float: 'right' }} />
+            <input type="submit" className="button color-light-bg" value={submitting ? "Submitting RSVP ..." : "Submit"} style={{ float: 'right', margin: 'auto' }} />
           </div>
         </div>
       </form>
+    }
+
+    {errors.length > 0 && success.length <= 0 &&
+      <div className="form-errors color-red-bg">
+        <p className="color-light">There were some errors in the form!</p>
+        <ul>
+        {errors.map((error, i) => {
+          return <li className="color-light" key={`error_${i}`}>{error}</li>
+        })}
+        </ul>
+      </div>
     }
 
     {success.length > 0 &&

@@ -10,6 +10,7 @@ $color-dark: #01401C;
 $color-text: #444;
 $color-gray: #D9CFC8;
 $color-white: #fff;
+$color-red: #FF4136;
 
 html {
     font-size: 100%;
@@ -30,6 +31,8 @@ body {
 .color-gray-bg { background-color: $color-gray; }
 .color-white { color: $color-white; }
 .color-white-bg { background-color: $color-white; }
+.color-red { color: $color-red; }
+.color-red-bg { background-color: $color-red }
 
 /* Color Theme Swatches in Hex */
 // .beautiful-green-wedding-bouquet-in-retro-car,-wooden-steering-wheel-1-hex { color: #01401C; }
@@ -99,6 +102,9 @@ p, form, li {
     }
     .nav a.active {
         border-bottom: 0.3rem solid $color-gray;
+    }
+    .nav a.highlight {
+        font-weight: bold;
     }
 }
 
@@ -220,8 +226,8 @@ form input[type=submit] {
 }
 
 .form-errors {
-    background-color: #b58488;
-    padding: 0.25rem 1rem;
+    padding: 0.1rem 1rem;
+    margin: 2rem 0;
 }
 
 .location-filter {
