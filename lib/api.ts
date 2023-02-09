@@ -1,28 +1,18 @@
 import type { NextApiRequest } from 'next';
-import type { APIErrors, Person } from './types';
-import v from '@mapbox/fusspot';
+import type { APIPostBody } from './types';
+import type { ValidationResult } from 'joi';
 
-export function validateRequestBody(body: any) : APIErrors[] {
-  const errors = [];
-  const validatePerson = v.assert(
-    v.strictShape({
-      firstname: v.required(v.string),
-      lastname: v.required(v.string),
-      attending: v.required(v.boolean),
-      email: v.required(v.string)
-    })
-  );
+import Joi from 'joi';
 
-  body.forEach((person: Person) => {
-    try {
-      validatePerson(person);
-    } catch (err) {
-      errors.push(err.message);
-    }
-  });
+const schema = Joi.array().items({
+  firstname: Joi.string().required(),
+  lastname: Joi.string().required(),
+  attending: Joi.boolean().required(),
+  email: Joi.string().email().required()
+});
 
-  if (errors.length) return errors;
-  return [];
+export function validateRequestBody(body: APIPostBody) : ValidationResult {
+  return schema.validate(body, { abortEarly: false });
 }
 
 export function log(request: NextApiRequest) : void {
