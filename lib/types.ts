@@ -8,8 +8,8 @@ export interface Person {
 export type APIPostBody = Array<Person>;
 export type APIErrors = Array<string>;
 export interface APIResponse {
-  value: Array<Person>;
-  error?: String;
+  data: Array<Person>;
+  errors?: APIErrors;
 }
 
 export interface LocationItem {

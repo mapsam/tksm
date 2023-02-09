@@ -16,7 +16,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     // validate body
     const validation: ValidationResult = validateRequestBody(req.body);
     if (validation.error) {
-      const errors = validation.error.details.map((e) => `${e.message}, got: ${e.context.value}`);
+      const errors = validation.error.details.map((e) => `${e.message}, got: ${e.context?.value || 'null'}`);
       return res.status(400).json({ errors });
     }
 
