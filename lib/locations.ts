@@ -9,7 +9,7 @@ export function groupByKey(key: string, list: Array<any>) {
 
 export default [
   {
-    name: 'Metropolist (Venue)',
+    name: 'Metropolist (Wedding Venue)',
     group: 'Wedding locations',
     description: 'Metropolist is housed in the historic Ederer Building on 1st Avenue South. Built in 1919, the Ederer Crane building was used to manufacture large-scale cranes for construction projects around the area. The surrounding area offers ample parking and a 12 minute walk to the SODO light rail stop.',
     address: '2931 1st Ave S suite a, Seattle, WA 98134',
@@ -19,13 +19,24 @@ export default [
     neighborhood: 'SODO / Venue'
   },
   {
+    name: 'The Pine Box (Day-Before Night Out)',
+    group: 'Wedding locations',
+    description: 'Former funeral home and chapel, now beer hall. For those traveling from out of town, come say hello from 8-10pm. More info on the Schedule page.',
+    address: '1600 Melrose Ave, Seattle, WA 98122',
+    lng: -122.32765811254232,
+    lat: 47.615505835829666,
+    neighborhood: 'Capitol Hill',
+    link: 'http://www.pineboxbar.com'
+  },
+  {
     name: 'Gasworks Park (Day-After Picnic)',
     group: 'Wedding locations',
-    description: 'Say hello and goodbye to the bride & groom at Gasworks Park, which provides a beautiful view of Lake Union and downtown Seattle. We\'ll provide baked goods and coffee!',
+    description: 'Say hello and goodbye to the bride & groom at Gasworks Park, which provides a beautiful view of Lake Union and downtown Seattle. We\'ll provide baked goods and coffee! More info on the Schedule page.',
     address: '2101 N Northlake Way, Seattle, WA 98103',
     lng: -122.3338459810224,
     lat: 47.646041605543246,
-    neighborhood: 'Wallingford'
+    neighborhood: 'Wallingford',
+    link: 'https://www.seattle.gov/parks/find/parks/gas-works-park'
   },
   // {
   //   name: 'Out-of-towner\'s shindig',
@@ -74,7 +85,7 @@ export default [
     lng: -122.34750079444281,
     lat: 47.651061436935144,
     link: 'https://en.wikipedia.org/wiki/Fremont_Troll',
-    neighborhood: 'Ballard'
+    neighborhood: 'Fremont'
   },
   {
     name: 'Reuben\'s Brewery',

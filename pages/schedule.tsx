@@ -10,15 +10,27 @@ export default function Index() {
       <Block id="AUG-11">
         <h1>Friday, August 11<sup>th</sup> - Traveler's shindig</h1>
         <p>
-          Time: 6pm - 9pm<br />
-          Location: TBD
+          Time: 8pm - 10pm<br />
+          Location: The Pine Box, Capitol Hill<br />
+          Address: <a href="https://goo.gl/maps/wKLLnmStPFbjRX8q8" target="_blank">1600 Melrose Ave, Seattle WA 98122</a>
         </p>
         <p>
-          Casual evening for those traveling from out of town.
-          Say hi to the Matthews/Varner &amp; Kelleher/Stuecker families,
-          grab a drink and a bite, and meet some of our favorite locals.
+          We will have a dedicated space at one of our classic favorites, The Pine Box.
+          Taylor and Sam frequented this bar in their early Seattle days as they
+          wandered their way up into Capitol Hill for a night out. Grab a beer and enjoy
+          the only church-related event of the weekend in the former chapel and funeral
+          home.
         </p>
-        <p>More details to come.</p>
+        <p>
+          The Pine Box is a 14 minute walk from the <a href="/accomodations">Inn at the WAC</a> hotel block downtown.
+          For those seeking dinner, we recommend finding some food before in Capitol Hill.
+          Some recommendations:
+        </p>
+        <ul>
+          <li><a href="https://goo.gl/maps/wiMij7nu6KBAm2AJ8" target="_blank">Taylor's Shellfish & Oyster Bar</a></li>
+          <li><a href="https://goo.gl/maps/E1TrtnodUL2MB17j8" target="_blank">Poquitos</a></li>
+          <li><a href="https://goo.gl/maps/remN5icAqT82HhW97" target="_blank">Ian's Pizza</a></li>
+        </ul>
       </Block>
 
       <Block id="AUG-12">

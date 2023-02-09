@@ -1,7 +1,7 @@
 import type { LocationItem } from '../lib/types';
 
 export default function Location({ info }: { info: LocationItem }) {
-  const mapUri = info.maps || `https://www.google.com/maps/place/${encodeURIComponent(info.maps)}`;
+  const mapUri = info.maps || `https://www.google.com/maps/place/${encodeURIComponent(info.address)}`;
 
   return (
     <div key={info.name} id={info.name} className="location">
