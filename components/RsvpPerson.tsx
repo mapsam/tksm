@@ -10,21 +10,32 @@ export default function RsvpPerson({ person, people, effect, index }: { person: 
 
   return (
     <div className="rsvp-person" key={`person-${index}`}>
-      <div className="field" key={`person-${index}-firstname`}>
-        <div className="control">
-          <input className="input" type="text" placeholder="Firstname" onChange={e => update('firstname', e.target.value)} required/>
+      <p><strong>Person {index + 1}</strong></p>
+      <div className="field-pair">
+        <div className="field" key={`person-${index}-firstname`}>
+          <div className="control">
+            <input className="input" type="text" placeholder="Firstname" onChange={e => update('firstname', e.target.value)} required/>
+          </div>
+        </div>
+
+        <div className="field" key={`person-${index}-lastname`}>
+          <div className="control">
+            <input className="input" type="text" placeholder="Lastname" onChange={e => update('lastname', e.target.value)} required/>
+          </div>
         </div>
       </div>
 
-      <div className="field" key={`person-${index}-lastname`}>
-        <div className="control">
-          <input className="input" type="text" placeholder="Lastname" onChange={e => update('lastname', e.target.value)} required/>
+      <div className="field-pair">
+        <div className="field" key={`person-${index}-email`}>
+          <div className="control">
+            <input className="input" type="text" placeholder="Email" onChange={e => update('email', e.target.value)} required/>
+          </div>
         </div>
-      </div>
 
-      <div className="field" key={`person-${index}-email`}>
-        <div className="control">
-          <input className="input" type="text" placeholder="Email" onChange={e => update('email', e.target.value)} required/>
+        <div className="field" key={`person-${index}-diet`}>
+          <div className="control">
+            <input className="input" type="text" placeholder="Dietary restrictions" onChange={e => update('diet', e.target.value)} required/>
+          </div>
         </div>
       </div>
 

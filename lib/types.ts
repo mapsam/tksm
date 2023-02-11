@@ -3,6 +3,7 @@ export interface Person {
   lastname: string|null;
   attending: boolean;
   email: string|null;
+  diet?: string;
 }
 
 export type APIPostBody = Array<Person>;

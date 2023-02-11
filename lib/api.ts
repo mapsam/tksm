@@ -8,7 +8,8 @@ const schema = Joi.array().items({
   firstname: Joi.string().trim().required(),
   lastname: Joi.string().trim().required(),
   attending: Joi.boolean().required(),
-  email: Joi.string().email().trim().required()
+  email: Joi.string().email().trim().required(),
+  diet: Joi.string()
 });
 
 export function validateRequestBody(body: APIPostBody) : ValidationResult {

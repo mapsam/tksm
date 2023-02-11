@@ -6,13 +6,15 @@ const defaultPerson: Person = {
   firstname: null,
   lastname: null,
   email: null,
-  attending: true
+  attending: true,
+  diet: null
 };
 
 export default function RSVP() {
   const [ success, setSuccess ] = useState<Array<Person>>([]);
   const [ errors, setErrors ] = useState<APIErrors>([]);
   const [ submitting, setSubmitting ] = useState<boolean>(false);
+  const [ numPeople, setNumPeople ] = useState(1);
   const [ people, setPeople ] = useState([defaultPerson]);
   const allowRSVPs: boolean = true;
 
@@ -22,6 +24,12 @@ export default function RSVP() {
   }
 
   useEffect(() => {}, [people]);
+  useEffect(() => {
+    console.log('number of people', numPeople);
+    setPeople(Array.from({ length: numPeople }, () => defaultPerson));
+  }, [numPeople]);
+
+
 
   async function sendRSVP(e) {
     e.preventDefault();
@@ -63,6 +71,12 @@ export default function RSVP() {
 
     {success.length === 0 &&
       <form className="rsvp-form" onSubmit={sendRSVP}>
+        <div className="field form-counter" key="person-count">
+          <p>How many people are you RSVP'ing for?&nbsp;&nbsp;
+            <input className="input" type="number" value={numPeople} min="1" max="5" onChange={e => setNumPeople(parseInt(e.target.value))}/>
+          </p>
+        </div>
+
         <div className="rsvp-people" key="rsvp-form-people">
           {people &&
             people.map((person, idx) => {
@@ -73,8 +87,7 @@ export default function RSVP() {
 
         <div className="field" key="rsvp-form-buttons">
           <div className="control">
-            <button className="button" onClick={addPerson}>Add person</button>
-            <input type="submit" className="button color-light-bg" value={submitting ? "Submitting RSVP ..." : "Submit"} style={{ float: 'right', margin: 'auto' }} />
+            <input type="submit" className="button color-light-bg" value={submitting ? "Submitting RSVP ..." : "Submit"} />
           </div>
         </div>
       </form>
