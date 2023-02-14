@@ -200,12 +200,19 @@ form input {
 
 form input[type=text] {
     width: 100%;
-    border: 1px solid #c0c0c0;
+    border: 1px solid $color-medium;
     border-radius: 5px;
 }
 
 form input[type=radio] {
     margin-right: 0.5rem;
+}
+
+form select {
+    width: 100px;
+    padding: 0.4rem;
+    border: 1px solid $color-medium;
+    border-radius: 5px;
 }
 
 /* mobile form */
@@ -227,9 +234,6 @@ form label  {
     margin-right: 2rem;
 }
 
-.form-counter {
-    bordera-bottom: 1px solid $color-medium;
-}
 form button,
 form input[type=submit] {
     padding: 0.75rem 1rem;

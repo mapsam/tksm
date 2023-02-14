@@ -1,5 +1,5 @@
 import type { Person, APIErrors, APIResponse, APIPostBody } from '../lib/types';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, SyntheticEvent } from 'react';
 import RsvpPerson from './RsvpPerson';
 
 const defaultPerson: Person = {
@@ -18,20 +18,13 @@ export default function RSVP() {
   const [ people, setPeople ] = useState([defaultPerson]);
   const allowRSVPs: boolean = true;
 
-  function addPerson(e) {
-    e.preventDefault();
-    setPeople([...people, defaultPerson]);
-  }
-
   useEffect(() => {}, [people]);
   useEffect(() => {
     console.log('number of people', numPeople);
     setPeople(Array.from({ length: numPeople }, () => defaultPerson));
   }, [numPeople]);
 
-
-
-  async function sendRSVP(e) {
+  async function sendRSVP(e: SyntheticEvent) {
     e.preventDefault();
 
     setSubmitting(true);
@@ -72,9 +65,19 @@ export default function RSVP() {
     {success.length === 0 &&
       <form className="rsvp-form" onSubmit={sendRSVP}>
         <div className="field form-counter" key="person-count">
-          <p>How many people are you RSVP'ing for?&nbsp;&nbsp;
-            <input className="input" type="number" value={numPeople} min="1" max="5" onChange={e => setNumPeople(parseInt(e.target.value))}/>
-          </p>
+          <p>How many people are you RSVP'ing for?</p>
+          <select name="" onChange={e => setNumPeople(parseInt(e.target.value))}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
         </div>
 
         <div className="rsvp-people" key="rsvp-form-people">
@@ -112,7 +115,7 @@ export default function RSVP() {
         <p>
           <ul>
             {success.map((p: Person) => {
-              return <li>{p.firstname} {p.lastname} ({p.email}) <strong>attending: {p.attending ? 'yes ☺️' : 'no 😢'}</strong></li>
+              return <li>{p.firstname} {p.lastname}, <strong>attending: {p.attending ? 'yes ☺️' : 'no 😢'}</strong></li>
             })}
           </ul>
         </p>

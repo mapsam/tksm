@@ -4,19 +4,24 @@ import type { Person  } from '../../../lib/types';
 import type { ValidationResult } from 'joi';
 
 import { google } from 'googleapis';
+import crypto from 'crypto';
 import { validateRequestBody, log } from '../../../lib/api';
 
 const sheets: sheets_v4.Sheets = google.sheets('v4');
 
 export default async function (req: NextApiRequest, res: NextApiResponse) {
-  log(req);
+  const requestId = crypto.randomBytes(4).toString('hex');
+  log(req, requestId);
 
   // append RSVP to spreadsheet
   if (req.method === 'POST') {
     // validate body
     const validation: ValidationResult = validateRequestBody(req.body);
     if (validation.error) {
-      const errors = validation.error.details.map((e) => `${e.message}, got: ${e.context?.value || 'null'}`);
+      console.log(JSON.stringify(validation.error, null, 2));
+      const errors = validation.error.details.map((e) => {
+        return `Person ${e.path[0] || 0 + 1}: ${e.message}, got: ${e.context?.value || 'null'}`;
+      });
       return res.status(400).json({ errors });
     }
 
@@ -41,19 +46,20 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         requestBody: {
           values: validation.value.map((p: Person) => {
             return [
-              p.firstname,                // firstname
-              p.lastname,                 // lastname
-              p.attending,                // attending
-              p.email,                    // email
-              submittedTime,              // time submited (on server)
-              JSON.stringify(req.body),   // raw post body for record keeping
-              JSON.stringify(req.headers) // request headers
+              p.firstname,                 // firstname
+              p.lastname,                  // lastname
+              p.attending,                 // attending
+              p.email,                     // email
+              submittedTime,               // time submited (on server)
+              JSON.stringify(req.body),    // raw post body for record keeping
+              JSON.stringify(req.headers), // request headers
+              requestId                    // request ID
             ];
           })
         }
       });
     } catch (err) {
-      console.log('ERROR', err);
+      console.log(`[${requestId}] ERROR`, err);
       return res.status(500).json({ errors: ['Uh oh, something went wrong. Send Sam an email at matthews.sam@gmail.com or text 651-343-6555!'] })
     }
 

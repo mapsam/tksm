@@ -5,17 +5,17 @@ import type { ValidationResult } from 'joi';
 import Joi from 'joi';
 
 const schema = Joi.array().items({
-  firstname: Joi.string().trim().required(),
-  lastname: Joi.string().trim().required(),
+  firstname: Joi.string().trim().min(1).max(50).required(),
+  lastname: Joi.string().trim().min(1).max(50).required(),
   attending: Joi.boolean().required(),
-  email: Joi.string().email().trim().required(),
-  diet: Joi.string()
+  email: Joi.string().email().trim().max(100).allow(null),
+  diet: Joi.string().allow(null).max(200)
 });
 
 export function validateRequestBody(body: APIPostBody) : ValidationResult {
   return schema.validate(body, { abortEarly: false });
 }
 
-export function log(request: NextApiRequest) : void {
-  console.log(`${request.method} ${request.url} ${JSON.stringify(request.body)}`);
+export function log(request: NextApiRequest, id: string) : void {
+  console.log(`[${id}] ${request.method} ${request.url} ${JSON.stringify(request.body)}`);
 }
