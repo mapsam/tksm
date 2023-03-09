@@ -27,7 +27,7 @@ export default function Index() {
           home that provided services for Bruce Lee.
         </p>
         <p>
-          The Pine Box is a 14 minute walk from the <a href="/accomodations">Inn at the WAC</a> hotel block downtown.
+          The Pine Box is a 14 minute walk from the <a href="/accommodations">Inn at the WAC</a> hotel block downtown.
           For those seeking dinner, we recommend finding some food before in Capitol Hill.
           Some recommendations:
         </p>
