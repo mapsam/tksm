@@ -5,8 +5,8 @@ import accomImage from '../public/sam-taylor-wac.png';
 export default function Page() {
   return (
     <Content
-      name="Accomodations"
-      summary="No matter where you stay, we recommend booking accomodations as soon as possible. August in Seattle is prime outdoor and cruise season."
+      name="Accommodations"
+      summary="No matter where you stay, we recommend booking accommodations as soon as possible. August in Seattle is prime outdoor and cruise season."
       img={accomImage}>
       <Block id="HOTEL-BLOCK">
         <h1>Hotel Block</h1>
