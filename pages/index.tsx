@@ -22,7 +22,7 @@ export default function Index() {
           enough live music to lose your socks.
         </p>
         <p>
-          RSVPs will be made available in early spring 2023. Until then, view the <a href="/schedule">schedule</a>, book your <a href="/accomodations">accomodations</a> and learn more about <a href="/seattle">traveling to Seattle</a>.
+          RSVPs will be made available in early spring 2023. Until then, view the <a href="/schedule">schedule</a>, book your <a href="/accommodations">accommodations</a> and learn more about <a href="/seattle">traveling to Seattle</a>.
         </p>
         <p>Have a question? Check out the <a href="/faq">FAQ</a> page.</p>
         <p>Warmly,<br />

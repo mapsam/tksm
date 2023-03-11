@@ -22,7 +22,7 @@ export default function Content(props: ContentProps) {
           </div>
         }
         {props.summary &&
-          <p dangerouslySetInnerHTML={{ __html: props.summary}} />
+          <p dangerouslySetInnerHTML={{ __html: props.summary }}></p>
         }
       </Block>
 

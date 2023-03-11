@@ -52,7 +52,7 @@ export default function RSVP() {
       <div className="rsvp-form">
         <p>
           The RSVP form will be made available in Spring 2023.
-          Until then, please book your accomodations as early as possible!
+          Until then, please book your accommodations as early as possible!
           We'll send an email once the form becomes available.
         </p>
       </div>

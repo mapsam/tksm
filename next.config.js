@@ -1,3 +1,12 @@
 module.exports = {
-  reactStrictMode: true
+  reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/accomodations',
+        destination: '/accommodations',
+        permanent: true
+      }
+    ]
+  }
 };
