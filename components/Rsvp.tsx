@@ -1,45 +1,67 @@
 import type { Person, APIErrors, APIResponse, APIPostBody } from '../lib/types';
 import React, { useState, useEffect, SyntheticEvent } from 'react';
 import RsvpPerson from './RsvpPerson';
+import RsvpAttendance from './RsvpAttendance';
 
 const defaultPerson: Person = {
-  firstname: null,
-  lastname: null,
-  email: null,
-  attending: true,
-  diet: null
+  firstname: 'Person',
+  lastname: '1',
+  attendingFriday: 'yes',
+  attendingSaturday: 'yes',
+  attendingSunday: 'yes'
 };
 
 export default function RSVP() {
-  const [ success, setSuccess ] = useState<Array<Person>>([]);
+  const [ success, setSuccess ] = useState<null|APIPostBody>(null);
   const [ errors, setErrors ] = useState<APIErrors>([]);
   const [ submitting, setSubmitting ] = useState<boolean>(false);
   const [ numPeople, setNumPeople ] = useState(1);
   const [ people, setPeople ] = useState([defaultPerson]);
+  const [ infoPhone, setInfoPhone ] = useState(null);
+  const [ infoEmail, setInfoEmail ] = useState(null);
+  const [ infoRestrictions, setInfoRestrictions ] = useState(null);
+  const [ infoAccommodations, setInfoAccommodations ] = useState(null);
+  const [ infoWords, setInfoWords ] = useState(null);
   const allowRSVPs: boolean = true;
 
   useEffect(() => {}, [people]);
   useEffect(() => {
-    console.log('number of people', numPeople);
-    setPeople(Array.from({ length: numPeople }, () => defaultPerson));
+    const peeps = [];
+    for (let i = 0; i < numPeople; i++) {
+      const merged = {
+        ...defaultPerson,
+        ...{
+          lastname: i + 1
+        },
+        ...people[i] || {}
+      }
+      peeps.push(merged);
+    }
+    setPeople(peeps);
   }, [numPeople]);
 
   async function sendRSVP(e: SyntheticEvent) {
     e.preventDefault();
-
     setSubmitting(true);
+
+    const body: APIPostBody = {
+      people,
+      phone: infoPhone,
+      email: infoEmail,
+      restrictions: infoRestrictions,
+      accommodations: infoAccommodations,
+      words: infoWords
+    };
+
     const response = await fetch('/api/rsvp', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(people)
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
     });
 
     const { errors, data }: APIResponse = await response.json();
 
     setSubmitting(false);
-
     if (response.status !== 200) {
       setErrors(errors || ['Something went wrong.']);
     } else {
@@ -62,10 +84,10 @@ export default function RSVP() {
   return (
     <React.Fragment>
 
-    {success.length === 0 &&
+    {!success &&
       <form className="rsvp-form" onSubmit={sendRSVP}>
         <div className="field form-counter" key="person-count">
-          <p>How many people are you RSVP'ing for?</p>
+          <h2>How many people are you RSVP'ing for?</h2>
           <select name="" onChange={e => setNumPeople(parseInt(e.target.value))}>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -88,15 +110,85 @@ export default function RSVP() {
           }
         </div>
 
+        <div>
+          <h2>Contact information</h2>
+          <p>Primary contact for the person/people above. We'll use this information in case we need to reach out to you for questions.</p>
+          <div className="field-pair">
+            <div className="field" key='contact-info-phone'>
+              <input className="input" type="tel" onChange={(e) => setInfoPhone(e.target.value)} placeholder="Phone number" pattern="[0-9]{10}" required/>
+            </div>
+
+            <div className="field" key='contact-info-email'>
+              <input className="input" type="email" autoCorrect="off" autoCapitalize="none" onChange={(e) => setInfoEmail(e.target.value)} placeholder="Email" required/>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2>Event attendance</h2>
+          <p>Will you be attending the wedding and any other events? Your submissions for Friday and Sunday just help us get a head count so we can prepare. If your plans change, no worries! Check out the <a href="/schedule" target="_blank">schedule page</a> for more details.</p>
+        </div>
+
+        {people.length &&
+          <div>
+            <p><i>Traveler's shindig</i> - Friday August 11th @ the Pine Box, 8pm - 10pm. For those traveling from out of town. 21+</p>
+            {
+              people.map((person, idx) => {
+                return <RsvpAttendance person={person} people={people} effect={setPeople} index={idx} field='attendingFriday' />
+              })
+            }
+          </div>
+        }
+
+        {people.length &&
+          <div>
+            <p><i>Ceremony & reception</i> - Saturday August 12th @ Metropolist, 5pm - 11pm.</p>
+            {
+              people.map((person, idx) => {
+                return <RsvpAttendance person={person} people={people} effect={setPeople} index={idx} field='attendingSaturday' />
+              })
+            }
+          </div>
+        }
+
+        {people.length &&
+          <div>
+            <p><i>Sunday picnic</i> - Sunday August 13th @ Gasworks Park, 10am - 12:00pm. Everyone welcome, including kids.</p>
+            {
+              people.map((person, idx) => {
+                return <RsvpAttendance person={person} people={people} effect={setPeople} index={idx} field='attendingSunday' />
+              })
+            }
+          </div>
+        }
+
+        <div>
+          <h2>Additional information (optional)</h2>
+          <p>Dietary restrictions? We will have meat and vegetarian options available. Let us know if any of your party has further restrictions. We'll make sure everyone can eat.</p>
+          <div className="field" key='dietary-restrictions'>
+            <input className="input" type="text" onChange={(e) => setInfoRestrictions(e.target.value) } placeholder="Dietary restrictions" />
+          </div>
+
+          <p>Where are you planning to stay? If you aren't sure, that's okay!</p>
+          <div className="field" key='accommodations'>
+            <input className="input" type="text" onChange={(e) => setInfoAccommodations(e.target.value) } placeholder="Where are you staying?" />
+          </div>
+
+          <p>Words of widsom for the bride and groom?</p>
+          <div className="field" key='words-of-wisdom'>
+            <input className="input" type="text" onChange={(e) => setInfoWords(e.target.value) } placeholder="..." />
+          </div>
+        </div>
+
         <div className="field" key="rsvp-form-buttons">
           <div className="control">
-            <input type="submit" className="button color-light-bg" value={submitting ? "Submitting RSVP ..." : "Submit"} />
+            <input type="submit" className="button" value={submitting ? "Submitting RSVP ..." : "Submit"} />
           </div>
         </div>
       </form>
     }
 
-    {errors.length > 0 && success.length <= 0 &&
+    {errors.length > 0 && !success &&
       <div className="form-errors color-red-bg">
         <p className="color-light">There were some errors in the form!</p>
         <ul>
@@ -107,19 +199,20 @@ export default function RSVP() {
       </div>
     }
 
-    {success.length > 0 &&
+    {success &&
       <div className="form-response">
         <p className="has-text-weight-bold">
           ❤️ Thanks! If you're attending, we're thrilled! If you can't, we get it. We'll miss you! Here's the information we got:
         </p>
-        <p>
-          <ul>
-            {success.map((p: Person) => {
-              return <li>{p.firstname} {p.lastname}, <strong>attending: {p.attending ? 'yes ☺️' : 'no 😢'}</strong></li>
-            })}
-          </ul>
+        {success.people.map((p: Person) => {
+          return <p className="mono">{p.firstname} {p.lastname}, Friday ({p.attendingFriday}) Saturday ({p.attendingSaturday}) Sunday ({p.attendingSunday})</p>
+        })}
+        <p className="mono">
+          Phone: {success.phone}<br />
+          Email: {success.email}<br />
+          {success.restrictions && `Restrictions: ${success.restrictions}` }
         </p>
-        <p>If this information looks correct, you're all set. If you need to make a change, send Sam a message at matthews.sam@gmail.com. If you need to submit more RSVPs, refresh the page.</p>
+        <p>If this information looks correct, you're all set. If you need to make a change, text Sam @ 651-343-6555. If you need to submit more RSVPs, refresh the page.</p>
       </div>
     }
     </React.Fragment>

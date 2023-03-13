@@ -16,11 +16,11 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   // append RSVP to spreadsheet
   if (req.method === 'POST') {
     // validate body
-    const validation: ValidationResult = validateRequestBody(req.body);
-    if (validation.error) {
-      console.log(JSON.stringify(validation.error, null, 2));
-      const errors = validation.error.details.map((e) => {
-        return `Person ${e.path[0] || 0 + 1}: ${e.message}, got: ${e.context?.value || 'null'}`;
+    const validated: ValidationResult = validateRequestBody(req.body);
+    if (validated.error) {
+      console.log(JSON.stringify(validated.error, null, 2));
+      const errors = validated.error.details.map((e) => {
+        return `Person ${e.path[0] || 0 + 1}: ${e.message}, got: ${e.context?.value.slice(0, 200) || 'null'}...`;
       });
       return res.status(400).json({ errors });
     }
@@ -44,16 +44,22 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         range: 'RAW',
         auth,
         requestBody: {
-          values: validation.value.map((p: Person) => {
+          values: validated.value.people.map((p: Person) => {
             return [
-              p.firstname,                 // firstname
-              p.lastname,                  // lastname
-              p.attending,                 // attending
-              p.email,                     // email
-              submittedTime,               // time submited (on server)
-              JSON.stringify(req.body),    // raw post body for record keeping
+              p.firstname, // firstname
+              p.lastname, // lastname
+              p.attendingFriday, // attending friday
+              p.attendingSaturday, // attending saturday
+              p.attendingSunday, // attending sunday
+              validated.value.email, // primary email
+              validated.value.phone, // primary phone
+              validated.value.restrictions, // dietary restrictions
+              validated.value.accommodations, // accomodation notes
+              validated.value.words, // words of wisdom
+              submittedTime, // time submited (on server)
+              JSON.stringify(req.body), // raw post body for record keeping
               JSON.stringify(req.headers), // request headers
-              requestId                    // request ID
+              requestId // request ID
             ];
           })
         }
@@ -63,7 +69,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
       return res.status(500).json({ errors: ['Uh oh, something went wrong. Send Sam an email at matthews.sam@gmail.com or text 651-343-6555!'] })
     }
 
-    return res.json({ data: validation.value });
+    return res.json({ data: validated.value });
   } else {
     return res.status(400).json({ message: `This API does not support ${req.method} requests.` });
   }
