@@ -2,6 +2,9 @@ import type { Person, APIErrors, APIResponse, APIPostBody } from '../lib/types';
 import React, { useState, useEffect, SyntheticEvent } from 'react';
 import RsvpPerson from './RsvpPerson';
 import RsvpAttendance from './RsvpAttendance';
+import PhoneInput from 'react-phone-number-input/input';
+
+// import 'react-phone-number-input/style.css';
 
 const defaultPerson: Person = {
   firstname: 'Person',
@@ -115,7 +118,13 @@ export default function RSVP() {
           <p>Primary contact for the person/people above. We'll use this information in case we need to reach out to you for questions.</p>
           <div className="field-pair">
             <div className="field" key='contact-info-phone'>
-              <input className="input" type="tel" onChange={(e) => setInfoPhone(e.target.value)} placeholder="Phone number" pattern="[0-9]{10}" required/>
+              <PhoneInput
+                placeholder="Phone number (optional)"
+                value={infoPhone}
+                defaultCountry="US"
+                country="US"
+                onChange={setInfoPhone}
+                rules={{ required: false }} />
             </div>
 
             <div className="field" key='contact-info-email'>
@@ -169,7 +178,7 @@ export default function RSVP() {
             <input className="input" type="text" onChange={(e) => setInfoRestrictions(e.target.value) } placeholder="Dietary restrictions" />
           </div>
 
-          <p>Where are you planning to stay? If you aren't sure, that's okay!</p>
+          <p>Where are you planning to stay? If you aren't sure yet, that's okay!</p>
           <div className="field" key='accommodations'>
             <input className="input" type="text" onChange={(e) => setInfoAccommodations(e.target.value) } placeholder="Where are you staying?" />
           </div>
@@ -208,11 +217,11 @@ export default function RSVP() {
           return <p className="mono">{p.firstname} {p.lastname}, Friday ({p.attendingFriday}) Saturday ({p.attendingSaturday}) Sunday ({p.attendingSunday})</p>
         })}
         <p className="mono">
-          Phone: {success.phone}<br />
-          Email: {success.email}<br />
+          {success.phone && `Phone: ${success.phone}, `}
+          Email: {success.email}
           {success.restrictions && `Restrictions: ${success.restrictions}` }
         </p>
-        <p>If this information looks correct, you're all set. If you need to make a change, text Sam @ 651-343-6555. If you need to submit more RSVPs, refresh the page.</p>
+        <p>If this information looks correct, you're all set. If you need to make a change, text Sam @ 651-343-6555. If you need to submit more RSVPs, refresh the page. Make sure to book your <a href="/accommodations">accommodations</a> if you haven't!</p>
       </div>
     }
     </React.Fragment>

@@ -8,8 +8,8 @@ export interface Person {
 
 export type APIPostBody = {
   people: Array<Person>,
-  phone: string,
   email: string,
+  phone?: string,
   restrictions?: string|null,
   accommodations?: string|null,
   words?: string|null

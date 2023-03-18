@@ -12,7 +12,7 @@ const schema = Joi.object({
     attendingSaturday: Joi.string().valid('yes', 'no', 'maybe').required(),
     attendingSunday: Joi.string().valid('yes', 'no', 'maybe').required(),
   }),
-  phone: Joi.string().trim().max(12).required(),
+  phone: Joi.string().trim().allow(null, '').max(12),
   email: Joi.string().email().trim().max(100).required(),
   restrictions: Joi.string().allow(null, '').max(200),
   accommodations: Joi.string().allow(null, '').max(200),
