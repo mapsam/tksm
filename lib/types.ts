@@ -1,14 +1,23 @@
 export interface Person {
   firstname: string|null;
   lastname: string|null;
-  attending: boolean;
-  email: string|null;
+  attendingFriday: string;
+  attendingSaturday: string;
+  attendingSunday: string;
 }
 
-export type APIPostBody = Array<Person>;
+export type APIPostBody = {
+  people: Array<Person>,
+  email: string,
+  phone?: string,
+  restrictions?: string|null,
+  accommodations?: string|null,
+  words?: string|null
+};
+
 export type APIErrors = Array<string>;
 export interface APIResponse {
-  data?: APIPostBody;
+  data: APIPostBody;
   errors?: APIErrors;
 }
 

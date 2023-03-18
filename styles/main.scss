@@ -10,6 +10,9 @@ $color-dark: #01401C;
 $color-text: #444;
 $color-gray: #D9CFC8;
 $color-white: #fff;
+$color-red: #FF4136;
+$color-light-green: #BDD9B0;
+$color-light-red: #F2B2AC;
 
 html {
     font-size: 100%;
@@ -19,17 +22,23 @@ body {
 }
 
 .color-light { color: $color-light; }
-.color-light-bg { background-color: $color-light; }
+.color-light-bg { background-color: $color-light !important; }
 .color-medium { color: $color-medium; }
-.color-medium-bg { background-color: $color-medium; }
+.color-medium-bg { background-color: $color-medium !important; }
 .color-dark { color: $color-dark; }
-.color-dark-bg { background-color: $color-dark; }
+.color-dark-bg { background-color: $color-dark !important; }
 .color-text { color: $color-text; }
-.color-text-bg { background-color: $color-text; }
+.color-text-bg { background-color: $color-text !important; }
 .color-gray { color: $color-gray; }
-.color-gray-bg { background-color: $color-gray; }
+.color-gray-bg { background-color: $color-gray !important; }
 .color-white { color: $color-white; }
-.color-white-bg { background-color: $color-white; }
+.color-white-bg { background-color: $color-white !important; }
+.color-red { color: $color-red; }
+.color-red-bg { background-color: $color-red !important }
+.color-light-green { color: $color-light-green }
+.color-light-green-bg { background-color: $color-light-green !important }
+.color-light-red { color: $color-light-red }
+.color-light-red-bg { background-color: $color-light-red !important }
 
 /* Color Theme Swatches in Hex */
 // .beautiful-green-wedding-bouquet-in-retro-car,-wooden-steering-wheel-1-hex { color: #01401C; }
@@ -99,6 +108,9 @@ p, form, li {
     }
     .nav a.active {
         border-bottom: 0.3rem solid $color-gray;
+    }
+    .nav a.highlight {
+        font-weight: bold;
     }
 }
 
@@ -187,19 +199,52 @@ footer p {
     font-size: 1.2em;
 }
 
-form input {
+form input, form select {
     padding: 0.7rem;
     margin: 0.5rem 0 1rem;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
 }
 
-form input[type=text] {
+form input[type=text], form input[type=tel], form input[type=email] {
     width: 100%;
-    border: 1px solid #c0c0c0;
+    border: 1px solid $color-medium;
     border-radius: 5px;
 }
 
 form input[type=radio] {
     margin-right: 0.5rem;
+}
+
+form select {
+    width: 100px;
+    padding: 0.4rem;
+    border: 1px solid $color-medium;
+    border-radius: 5px;
+}
+
+/* mobile form */
+@media (min-width: 55rem) { /* desktop form */
+    .person-attendance {
+        display: block;
+        margin-bottom: 0.5rem;
+    }
+    .person-attendance-name {
+        display: inline-block;
+        width: 10rem;
+        overflow-wrap: break-word;
+    }
+}
+.field-pair {
+    .field {
+        display: inline-block;
+        width: 50%;
+        padding-left: 0.75rem;
+    }
+    .field:first-child {
+        padding-right: 0.75rem;
+        padding-left: 0rem;
+    }
 }
 
 form label  {
@@ -209,19 +254,15 @@ form label  {
 form button,
 form input[type=submit] {
     padding: 0.75rem 1rem;
-    background-color: $color-white;
-    border: 2px solid $color-gray;
+    background-color: $color-dark;
+    border: 2px solid $color-dark;
+    color: $color-light;
     cursor: pointer;
-    display: inline-block;
-}
-
-.rsvp-person {
-    margin-bottom: 2rem;
 }
 
 .form-errors {
-    background-color: #b58488;
-    padding: 0.25rem 1rem;
+    padding: 0.1rem 1rem;
+    margin: 2rem 0;
 }
 
 .location-filter {
@@ -241,7 +282,7 @@ form input[type=submit] {
 .location {
     margin-bottom: 2rem;
 }
-.location-metadata, .location-metadata * {
+.location-metadata, .location-metadata *, .mono {
     font-family: 'Roboto Mono', monospace;
     font-size: 1rem;
 }

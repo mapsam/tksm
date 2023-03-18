@@ -1,17 +1,17 @@
 import { useRouter } from 'next/router';
 
-function NavLink({ children, href, clickAction }) {
+function NavLink({ children, href, clickAction, highlight = false }) {
   const router = useRouter();
   const active = router.pathname === href ? 'active' : '';
 
   const handleClick = (e: any) => {
     e.preventDefault();
     clickAction(false);
-    router.push(href)
+    router.push(href);
   }
 
   return (
-    <a href={href} onClick={handleClick} className={active}>
+    <a href={href} onClick={handleClick} className={`${active} ${highlight ? 'highlight' : ''}`}>
       {children}
     </a>
   )
