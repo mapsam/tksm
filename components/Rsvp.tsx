@@ -119,7 +119,7 @@ export default function RSVP() {
           <div className="field-pair">
             <div className="field" key='contact-info-phone'>
               <PhoneInput
-                placeholder="Phone number (optional)"
+                placeholder="Phone"
                 value={infoPhone}
                 defaultCountry="US"
                 country="US"
@@ -216,11 +216,15 @@ export default function RSVP() {
         {success.people.map((p: Person) => {
           return <p className="mono">{p.firstname} {p.lastname}, Friday ({p.attendingFriday}) Saturday ({p.attendingSaturday}) Sunday ({p.attendingSunday})</p>
         })}
-        <p className="mono">
-          {success.phone && `Phone: ${success.phone}, `}
-          Email: {success.email}
-          {success.restrictions && `Restrictions: ${success.restrictions}` }
-        </p>
+        {success.phone &&
+          <p className="mono">Phone: {success.phone}</p>
+        }
+        {success.email &&
+          <p className="mono">Email: {success.email}</p>
+        }
+        {success.restrictions &&
+          <p className="mono">Restrictions: {success.restrictions}</p>
+        }
         <p>If this information looks correct, you're all set. If you need to make a change, text Sam @ 651-343-6555. If you need to submit more RSVPs, refresh the page. Make sure to book your <a href="/accommodations">accommodations</a> if you haven't!</p>
       </div>
     }
