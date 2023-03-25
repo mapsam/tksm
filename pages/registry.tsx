@@ -4,6 +4,7 @@ import type { SyntheticEvent } from 'react';
 
 import Image from 'next/image';
 import { useState } from 'react';
+import CurrencyInput from 'react-currency-input-field';
 import { google } from 'googleapis';
 import Content from '../components/Content';
 import Block from '../components/Block';
@@ -111,7 +112,13 @@ export default function Page({ goals }: { goals: Goals } ) {
               <option value="checkcash">Cash or check</option>
             </select>
 
-            <input type="number" placeholder="Gift amount" onChange={(e) => setAmount(e.target.value)} required></input>
+            {/* <input type="number" placeholder="Gift amount" onChange={(e) => setAmount(e.target.value)} required></input> */}
+            <CurrencyInput
+              placeholder="Gift amount"
+              allowNegativeValue={false}
+              prefix="$"
+              onValueChange={(value) => setAmount(value)}
+            />
 
             {method === 'venmo' &&
               <div style={{ textAlign: 'center' }}>
