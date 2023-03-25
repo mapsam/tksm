@@ -15,6 +15,9 @@ export default function Page() {
         <h2>Are kids allowed to the wedding?</h2>
         <p>Nope!</p>
 
+        <h2>Are kids allowed the other events?</h2>
+        <p>Everyone is welcome to the Sunday picnic! We'll just be hanging out in a park and hopefully enjoying some sunshine. The Friday evening event is 21+ only, enforced by Washington State.</p>
+
         <h2>What should I do in Seattle while I'm visiting?</h2>
         <p>We're really excited you want to spend some time in our favorite place! We have a few scheduled events, but really want to give you a chance to explore the place we call home. Check out the <a href="/seattle">Visiting Seattle page</a>, which has a collection of some of our favorite places and must-see Seattle destinations.</p>
 
