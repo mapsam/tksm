@@ -203,13 +203,13 @@ form input, form select {
     padding: 0.7rem;
     margin: 0.5rem 0 1rem;
     font-family: 'Roboto Mono', monospace;
+    border: 1px solid $color-medium;
     font-size: 1rem;
+    border-radius: 5px;
 }
 
-form input[type=text], form input[type=tel], form input[type=email] {
+form input[type=text], form input[type=tel], form input[type=email], form input[type=number] {
     width: 100%;
-    border: 1px solid $color-medium;
-    border-radius: 5px;
 }
 
 form input[type=radio] {
@@ -217,10 +217,7 @@ form input[type=radio] {
 }
 
 form select {
-    width: 100px;
-    padding: 0.4rem;
-    border: 1px solid $color-medium;
-    border-radius: 5px;
+    padding: 0.55rem;
 }
 
 /* mobile form */
@@ -285,4 +282,9 @@ form input[type=submit] {
 .location-metadata, .location-metadata *, .mono {
     font-family: 'Roboto Mono', monospace;
     font-size: 1rem;
+}
+.mono.fill {
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    background-color: #ededed;
 }

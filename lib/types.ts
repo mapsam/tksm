@@ -33,3 +33,21 @@ export interface LocationItem {
   time?: string,
   maps?: string
 }
+
+export interface Goals {
+  HONEYMOON: number,
+  HOUSE: number,
+  PAWS: number
+}
+
+export interface APIRegistryPostBody {
+  name: string;
+  item: 'HONEYMOON' | 'HOUSE' | 'PAWS';
+  amount: number;
+  method: 'venmo' | 'paypal' | 'zelle' | 'checkcash';
+}
+
+export interface APIRegistryResponse {
+  data: APIRegistryPostBody;
+  errors?: APIErrors;
+}
