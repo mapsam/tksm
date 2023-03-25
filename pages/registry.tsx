@@ -87,7 +87,7 @@ export default function Page({ goals }: { goals: Goals } ) {
       <Block id="PAWS">
         <h2>PAWS Charity Donation</h2>
         <GoalTracker percent={goals.PAWS} />
-        <p>Our favorite local shelter for our furry friends. Taylor is a former volunteer at PAWS, where they help house pets and wildlife rehab back into homes or the outdoors. Feel free to donate directly or contribute to this fund and we'll donate on your behalf.</p>
+        <p><a href="https://www.paws.org/" target="_blank">PAWS</a> is our favorite local shelter for our furry friends. Taylor is a former volunteer at PAWS, where they help house pets and wildlife rehab back into homes or the outdoors. Feel free to donate directly or contribute to this fund and we'll donate on your behalf.</p>
       </Block>
 
       <Block id="REGISTRY-FORM">
