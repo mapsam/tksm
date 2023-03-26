@@ -259,12 +259,12 @@ export default [
   //   description: '...'
   // },
   {
-    name: 'Bainbridge Island & Ferry',
+    name: 'Bainbridge Island & ferry',
     group: 'Day Trips',
     lng: -122.33783810191454,
     lat: 47.602326113346095,
     address: 'Seattle Ferry Terminal, Seattle, WA 98104',
-    description: 'Want to ride a Ferry? Don\'t have a car? Grab the Bainbridge Island ferry from Downtown Seattle! 30 minute ride each direction, no reservations required, and you can wander around the cute little town of Eagle Harbor. Ideal for a half-day trip, grabbing ice cream or a bite to eat, and getting a skyline shot of Downtown Seattle. Heck, you might even see an orca on your voyage!',
+    description: 'Want to ride a ferry? Don\'t have a car? Grab the Bainbridge Island ferry from Downtown Seattle! 30 minute ride each direction, no reservations required, and you can wander around the cute little town of Eagle Harbor. Ideal for a half-day trip, grabbing ice cream or a bite to eat, and getting a skyline shot of Downtown Seattle. Heck, you might even see an orca on your voyage!',
     neighborhood: 'Downtown',
     link: 'https://www.wsdot.com/Ferries/Schedule/scheduledetail.aspx?departingterm=7&arrivingterm=3&roundtrip=true'
   },
