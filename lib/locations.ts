@@ -179,7 +179,7 @@ export default [
   {
     name: 'Central Library',
     group: 'Arts & Culture',
-    description: 'Walk around the beautiful and whacky, flagship library in Downtown. Designed by Dutch architect Rem Koolhaas, the building offers spectacular attrium views, a never-ending spiral of books, and automatic book sorting.',
+    description: 'Walk around the beautiful and wacky, flagship library in Downtown. Designed by Dutch architect Rem Koolhaas, the building offers spectacular attrium views, a never-ending spiral of books, and automatic book sorting.',
     address: '1521 10th Ave, Seattle, WA 98122',
     lng: -122.31960954361946,
     lat: 47.61467897908314,
