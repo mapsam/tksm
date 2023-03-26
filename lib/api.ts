@@ -1,5 +1,5 @@
 import type { NextApiRequest } from 'next';
-import type { APIPostBody } from './types';
+import type { APIPostBody, APIRegistryPostBody } from './types';
 import type { ValidationResult } from 'joi';
 
 import Joi from 'joi';
@@ -21,6 +21,17 @@ const schema = Joi.object({
 
 export function validateRequestBody(body: APIPostBody) : ValidationResult {
   return schema.validate(body, { abortEarly: false });
+}
+
+const registrySchema = Joi.object({
+  name: Joi.string().trim().min(1).max(100).required(),
+  item: Joi.string().trim().allow('HONEYMOON', 'HOUSE', 'PAWS').required(),
+  amount: Joi.number().required(),
+  method: Joi.string().trim().allow('venmo', 'paypal', 'zelle', 'checkcash').required()
+});
+
+export function validateRegistryBody(body: APIRegistryPostBody) : ValidationResult {
+  return registrySchema.validate(body, { abortEarly: false });
 }
 
 export function log(request: NextApiRequest, id: string) : void {

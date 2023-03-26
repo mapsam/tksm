@@ -225,7 +225,7 @@ export default function RSVP() {
         {success.restrictions &&
           <p className="mono">Restrictions: {success.restrictions}</p>
         }
-        <p>If this information looks correct, you're all set. If you need to make a change, text Sam @ 651-343-6555. If you need to submit more RSVPs, refresh the page. Make sure to book your <a href="/accommodations">accommodations</a> if you haven't!</p>
+        <p>If this information looks correct, you're all set. If you need to make a change, text Sam @ 651-343-6555. If you need to submit more RSVPs, refresh the page. Make sure to book your <a href="/accommodations">accommodations</a> if you haven't! If you're up for it, have a look at the <a href="/registry">registry</a>.</p>
       </div>
     }
     </React.Fragment>

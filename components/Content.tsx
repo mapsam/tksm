@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import { useState, useEffect } from 'react';
 import Block from './Block';
 import Image from 'next/image';
 
