@@ -87,25 +87,25 @@ export default function Page({ goals }: { goals: Goals } ) {
       <Block id="PAWS">
         <h2>PAWS Charity Donation</h2>
         <GoalTracker percent={goals.PAWS} />
-        <p><a href="https://www.paws.org/" target="_blank">PAWS</a> is our favorite local shelter for our furry friends. Taylor is a former volunteer at PAWS, where they help house pets and wildlife rehab back into homes or the outdoors. Feel free to donate directly or contribute to this fund and we'll donate on your behalf.</p>
+        <p><a href="https://www.paws.org/" target="_blank">PAWS</a> is our favorite local shelter for our furry friends. Taylor is a former volunteer, where they help house pets and wildlife rehab back into homes or the outdoors. Feel free to donate directly or contribute to this fund and we'll donate on your behalf.</p>
       </Block>
 
       <Block id="REGISTRY-FORM">
         {!success &&
           <form onSubmit={submit}>
             <h1>Send a gift</h1>
-            <p>This registry is pretty low tech. We happily accept Venmo, Paypal, Zelle, or checks & cash. The form below helps us keep track of your gifts and the goals for each fund above. Feel free to send your gift upon submitting this form or on wedding day.</p>
+            <p>This registry is pretty low tech. We happily accept Venmo, Paypal, Zelle, or checks & cash. The form below helps us keep track of your gifts and the goals for each fund above, but you'll still need to contribute using whichever method you prefer. You can send your gift upon submitting this form or on wedding day, your choice!</p>
             <input type="text" placeholder="Name(s)" onChange={(e) => setName(e.target.value)} required></input>
 
-            <select style={{ width: '100%' }} onChange={(e) => setItem(e.target.value)} required>
-              <option value="" selected>Select gift option...</option>
+            <select style={{ width: '100%' }} onChange={(e) => setItem(e.target.value)} defaultValue="" required>
+              <option value="">Select gift option...</option>
               <option value="HONEYMOON">Honeymoon Fund</option>
               <option value="HOUSE">Home Improvement Fund</option>
               <option value="PAWS">PAWS Donation</option>
             </select>
 
-            <select style={{ width: '100%' }} onChange={(e) => setMethod(e.target.value)} required>
-              <option value="" selected>Select payment method...</option>
+            <select style={{ width: '100%' }} onChange={(e) => setMethod(e.target.value)} defaultValue="" required>
+              <option value="">Select payment method...</option>
               <option value="venmo">Venmo</option>
               <option value="paypal">PayPal</option>
               <option value="zelle">Zelle</option>

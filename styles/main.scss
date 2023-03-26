@@ -160,8 +160,11 @@ h1, h2, h1 *, h2 * {
 .title {
     font-family: 'DM Serif Display', serif;
     font-size: 3rem;
-    margin: 4rem 0 1rem;
+    margin: 5rem 0 1rem;
     color: $color-text;
+}
+.font-serif {
+    font-family: 'DM Serif Display', serif;
 }
 
 .title-image-container {
