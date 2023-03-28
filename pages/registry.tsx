@@ -1,43 +1,14 @@
-import type { sheets_v4, Auth } from 'googleapis';
 import type { Goals, APIRegistryPostBody, APIRegistryResponse, APIErrors } from '../lib/types';
 import type { SyntheticEvent } from 'react';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CurrencyInput from 'react-currency-input-field';
-import { google } from 'googleapis';
 import Content from '../components/Content';
 import Block from '../components/Block';
 import GoalTracker from '../components/GoalTracker';
 
-const sheets: sheets_v4.Sheets = google.sheets('v4');
-
-export async function getServerSideProps(context) {
-  const auth: Auth.GoogleAuth = new google.auth.GoogleAuth({
-    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-    projectId: process.env.GCLOUD_PROJECT,
-    credentials: {
-      private_key: process.env.GOOGLE_PRIVATE_KEY,
-      client_email: process.env.GOOGLE_CLIENT_EMAIL
-    }
-  });
-
-  const goals = (await sheets.spreadsheets.values.get({
-    spreadsheetId: process.env.GOOGLE_SPREADSHEET_ID,
-    valueRenderOption: 'UNFORMATTED_VALUE',
-    range: 'REGISTRY_SUM',
-    auth,
-  })).data.values.slice(1).reduce((memo, row) => {
-    memo[row[0]] = row[3];
-    return memo;
-  }, {});
-
-  return {
-    props: { goals }
-  };
-}
-
-export default function Page({ goals }: { goals: Goals } ) {
+export default function Page() {
   const [ name, setName ] = useState(null);
   const [ item, setItem ] = useState(null);
   const [ method, setMethod ] = useState(null);
@@ -45,6 +16,7 @@ export default function Page({ goals }: { goals: Goals } ) {
   const [ submitting, setSubmitting ] = useState<boolean>(false);
   const [ success, setSuccess ] = useState<null|APIRegistryPostBody>(null);
   const [ errors, setErrors ] = useState<APIErrors>([]);
+  const [ goals, setGoals ] = useState<null|Goals>(null);
 
   async function submit(e: SyntheticEvent) {
     e.preventDefault();
@@ -70,23 +42,30 @@ export default function Page({ goals }: { goals: Goals } ) {
     }
   }
 
+  useEffect(() => {
+    (async() => {
+      const { data } = await (await fetch('/api/registry')).json();
+      setGoals(data);
+    })();
+  }, []);
+
   return (
     <Content
       name="Registry"
       summary="Your presence is present enough, truly! If you feel inclined to get us a gift, we have a few options below.">
       <Block id="HONEYMOON">
         <h2>Honeymoon Fund</h2>
-        <GoalTracker percent={goals.HONEYMOON} />
+        <GoalTracker percent={goals?.HONEYMOON} />
         <p>We're headed to Ireland to pay respect to the Kelleher and Collins families. Uncle Tony, if you're reading this, we're looking for a place to stay!</p>
       </Block>
       <Block id="HOUSE">
         <h2>Home Improvement Fund</h2>
-        <GoalTracker percent={goals.HOUSE} />
+        <GoalTracker percent={goals?.HOUSE} />
         <p>Our 1955 house in Seattle could use some updates. Any gifts to this category will go toward new windows and doors throughout the house.</p>
       </Block>
       <Block id="PAWS">
         <h2>PAWS Charity Donation</h2>
-        <GoalTracker percent={goals.PAWS} />
+        <GoalTracker percent={goals?.PAWS} />
         <p><a href="https://www.paws.org/" target="_blank">PAWS</a> is our favorite local shelter for our furry friends. Taylor is a former volunteer, where they help house pets and wildlife rehab back into homes or the outdoors. Feel free to donate directly or contribute to this fund and we'll donate on your behalf.</p>
       </Block>
 

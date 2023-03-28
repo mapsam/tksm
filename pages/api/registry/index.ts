@@ -12,23 +12,23 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   const requestId = crypto.randomBytes(4).toString('hex');
   log(req, requestId);
 
-  // append RSVP to spreadsheet
+  // set up google client
+  const auth: Auth.GoogleAuth = new google.auth.GoogleAuth({
+    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    projectId: process.env.GCLOUD_PROJECT,
+    credentials: {
+      private_key: process.env.GOOGLE_PRIVATE_KEY,
+      client_email: process.env.GOOGLE_CLIENT_EMAIL
+    }
+  });
+
+  // append registry item to spreadsheet
   if (req.method === 'POST') {
     // validate body
     const validated: ValidationResult = validateRegistryBody(req.body);
     if (validated.error) {
       return res.status(400).json({ errors: validated.error });
     }
-
-    // set up google client
-    const auth: Auth.GoogleAuth = new google.auth.GoogleAuth({
-      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-      projectId: process.env.GCLOUD_PROJECT,
-      credentials: {
-        private_key: process.env.GOOGLE_PRIVATE_KEY,
-        client_email: process.env.GOOGLE_CLIENT_EMAIL
-      }
-    });
 
     // append row
     try {
@@ -57,6 +57,20 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     }
 
     return res.json({ data: 'ok' });
+
+  // get registry summary in simple key value structure
+  } else if (req.method === 'GET') {
+    const goals = (await sheets.spreadsheets.values.get({
+      spreadsheetId: process.env.GOOGLE_SPREADSHEET_ID,
+      valueRenderOption: 'UNFORMATTED_VALUE',
+      range: 'REGISTRY_SUM',
+      auth,
+    })).data.values.slice(1).reduce((memo, row) => {
+      memo[row[0]] = row[3];
+      return memo;
+    }, {});
+
+    return res.json({ data: goals });
   } else {
     return res.status(400).json({ message: `This API does not support ${req.method} requests.` });
   }
