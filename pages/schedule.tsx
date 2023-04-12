@@ -60,12 +60,17 @@ export default function Index() {
         <p><em>What to wear</em>: Semi-formal. Dressy-casual. Sparkly chic. Bring some fun, make it funky and make sure you can comfortably dance. We will be indoors with A/C if it's a scorcher.</p>
         <p><em>Colors:</em> If you really want to match, here's our color scheme:</p>
         <p style={{ textAlign: 'center' }}>
-          <div style={{ backgroundColor: '#753c26', width: 40, height: 40, borderRadius: '50%', display: 'inline-block', marginRight: '0.5em' }}></div>
-          <div style={{ backgroundColor: '#bcb8b0', width: 40, height: 40, borderRadius: '50%', display: 'inline-block', marginRight: '0.5em' }}></div>
-          <div style={{ backgroundColor: '#aa6745', width: 40, height: 40, borderRadius: '50%', display: 'inline-block', marginRight: '0.5em' }}></div>
-          <div style={{ backgroundColor: '#98b6a4', width: 40, height: 40, borderRadius: '50%', display: 'inline-block', marginRight: '0.5em' }}></div>
-          <div style={{ backgroundColor: '#606b53', width: 40, height: 40, borderRadius: '50%', display: 'inline-block', marginRight: '0.5em' }}></div>
-          <div style={{ backgroundColor: '#dbd0bf', width: 40, height: 40, borderRadius: '50%', display: 'inline-block', marginRight: '0.5em' }}></div>
+          <div style={{ backgroundColor: '#753c26', width: 35, height: 35, borderRadius: '50%', display: 'inline-block', marginRight: '0.5em' }}></div>
+          <div style={{ backgroundColor: '#bcb8b0', width: 35, height: 35, borderRadius: '50%', display: 'inline-block', marginRight: '0.5em' }}></div>
+          <div style={{ backgroundColor: '#aa6745', width: 35, height: 35, borderRadius: '50%', display: 'inline-block', marginRight: '0.5em' }}></div>
+          <div style={{ backgroundColor: '#98b6a4', width: 35, height: 35, borderRadius: '50%', display: 'inline-block', marginRight: '0.5em' }}></div>
+          <div style={{ backgroundColor: '#606b53', width: 35, height: 35, borderRadius: '50%', display: 'inline-block', marginRight: '0.5em' }}></div>
+          <div style={{ backgroundColor: '#dbd0bf', width: 35, height: 35, borderRadius: '50%', display: 'inline-block', marginRight: '0.5em' }}></div>
+          <div style={{ backgroundColor: '#dbd0bf', width: 35, height: 35, borderRadius: '50%', display: 'inline-block', marginRight: '0.5em',
+            backgroundImage: 'url("/discoball.gif")',
+            backgroundPosition: 'center',
+            backgroundSize: '180%'
+          }}></div>
         </p>
 
       </Block>
