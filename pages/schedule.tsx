@@ -53,11 +53,11 @@ export default function Index() {
         </p>
         <p>
           We're getting married in Seattle's SODO district.
-          We'll have a quick ceremony, food trucks, open bar, and games galore.
-          Cap off the night with Eldridge Gravy and the Court Supreme,
-          our favorite local funk band.
+          We'll have a quick ceremony, food trucks, open bar, and cap off the night
+          with Eldridge Gravy and the Court Supreme,
+          our favorite local funk band. Get groovy people!
         </p>
-        <p><em>What to wear</em>: Semi-formal. Dressy-casual. Sparkly chic. Bring some fun, make it funky and make sure you can comfortably dance. We will be indoors with A/C if it's a scorcher.</p>
+        <p><em>What to wear</em>: Semi-formal. Dressy-casual. Sparkly chic. Bring some fun, make it funky and make sure you can comfortably dance. The event is indoors and has A/C if it's a scorcher.</p>
         <p><em>Colors:</em> If you really want to match, here's our color scheme:</p>
         <p style={{ textAlign: 'center' }}>
           <div style={{ backgroundColor: '#753c26', width: 35, height: 35, borderRadius: '50%', display: 'inline-block', marginRight: '0.5em' }}></div>
