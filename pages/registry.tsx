@@ -66,7 +66,7 @@ export default function Page() {
       <Block id="PAWS">
         <h2>PAWS Charity Donation</h2>
         <GoalTracker percent={goals?.PAWS} />
-        <p><a href="https://www.paws.org/" target="_blank">PAWS</a> is our favorite local shelter for our furry friends. Taylor is a former volunteer, where they help house pets and wildlife rehab back into homes or the outdoors. Feel free to donate directly or contribute to this fund and we'll donate on your behalf.</p>
+        <p><a href="https://www.paws.org/" target="_blank">PAWS</a> is our favorite local shelter for our furry friends. Taylor is a former volunteer, where they help house pets and wildlife rehab back into homes or their natural habitat. Feel free to donate directly or contribute to this fund and we'll donate on your behalf.</p>
       </Block>
 
       <Block id="REGISTRY-FORM">
@@ -106,7 +106,7 @@ export default function Page() {
             }
             {method === 'paypal' &&
               <div style={{ textAlign: 'center' }}>
-                <p><Image src='/registry-paypal.png' width="100" height="33" /><br/>PayPal gifts can be sent to <span className="mono fill">matthews.sam@gmail.com</span>.<br />Please choose the "friends and family" option.</p>
+                <p><Image src='/registry-paypal.png' width="100" height="33" /><br/>PayPal gifts can be sent using <a href="https://www.paypal.me/mapsam" target="_blank">paypal.me/mapsam</a> or in your PayPal app to <span className="mono fill">matthews.sam@gmail.com</span>. Please choose the "friends and family" option.</p>
               </div>
             }
             {method === 'zelle' &&
