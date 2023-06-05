@@ -37,7 +37,7 @@ export default function Index() {
           <li><a href="https://goo.gl/maps/E1TrtnodUL2MB17j8" target="_blank">Poquitos</a> (Mexican, $$)</li>
           <li><a href="https://goo.gl/maps/RzENMoAYKp1ny5qBA" target="_blank">Mamnoon</a> (Middle Eastern, $$)</li>
           <li><a href="https://goo.gl/maps/5PXG3uwiQzh3brit9" target="_blank">Stateside</a> (Asian Fusion, $$$)</li>
-          <li><a href="https://goo.gl/maps/YDd5gxhn3JEPgk1K6" target="_blank">McMenamins Six Arms</a> (Bar & eatery, $)</li>
+          <li><a href="https://goo.gl/maps/YDd5gxhn3JEPgk1K6" target="_blank">Boat Bar</a> (Local Oysters, bites, libations, $$$)</li>
           <li><a href="https://goo.gl/maps/remN5icAqT82HhW97" target="_blank">Ian's</a> (Pizza by the slice, $)</li>
         </ul>
         <p>
