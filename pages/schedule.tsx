@@ -14,18 +14,17 @@ export default function Index() {
     <Content name="Schedule" summary={toc}>
       <Block id="AUG-11">
         <h1>Friday, August 11<sup>th</sup> - Traveler's shindig</h1>
-        <p style={{ backgroundColor: '#ffffae', padding: '1rem' }} className="mono">
-          Time and location has changed! Due to popular demand we're moving to a larger space that is kid friendly.
-        </p>
-
         <p className="location-metadata">
           Time: 4pm - 7pm<br />
           Location: Optimism Brewery, Capitol Hill<br />
           Address: <a href="https://goo.gl/maps/3cugYKecdhcu25WR7" target="_blank">1158 Broadway, Seattle, WA 98122</a>
         </p>
+        <p style={{ backgroundColor: '#ffffae', padding: '1rem' }} className="mono">
+          Time and location has changed!
+        </p>
         <p>
-          We will have dedicated space at <a href="https://optimismbrewing.com/" target="_blank">Optimism Brewery</a>; a frequent retreat for Taylor and her co-workers, 
-          plus it's home to Sam's favorite restroom design. We're excited to get some casual time with everyone before things get busy on Saturday.
+          We will have dedicated space at <a href="https://optimismbrewing.com/" target="_blank">Optimism Brewery</a> – a frequent retreat for Taylor and her co-workers, 
+          plus it's home to Sam's favorite restroom design. First round is on us! Kids are welcome.
         </p>
         <p>
           Optimism Brewery is an 18 minute walk from the <a href="/accommodations">Inn at the WAC</a> downtown, and an easy 9 minute walk from the Capitol Hill light rail station.
