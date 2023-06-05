@@ -40,9 +40,6 @@ export default function Index() {
           <li><a href="https://goo.gl/maps/YDd5gxhn3JEPgk1K6" target="_blank">Boat Bar</a> (Local Oysters, bites, libations, $$$)</li>
           <li><a href="https://goo.gl/maps/remN5icAqT82HhW97" target="_blank">Ian's</a> (Pizza by the slice, $)</li>
         </ul>
-        <p>
-          <em>The event was originally at the Pine Box, but due to popular demand we're relocating!</em> 
-        </p>
       </Block>
 
       <Block id="AUG-12">
