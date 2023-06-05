@@ -140,7 +140,7 @@ export default function RSVP() {
 
         {people.length &&
           <div>
-            <p><i>Traveler's shindig</i> - Friday August 11th @ the Pine Box, 8pm - 10pm. For those traveling from out of town. 21+</p>
+            <p><i>Traveler's shindig</i> - Friday August 11th @ Optimism Brewery, 4pm - 7pm. For those traveling from out of town. Kid friendly.</p>
             {
               people.map((person, idx) => {
                 return <RsvpAttendance person={person} people={people} effect={setPeople} index={idx} field='attendingFriday' />
