@@ -19,14 +19,14 @@ export default [
     neighborhood: 'SODO / Venue'
   },
   {
-    name: 'The Pine Box (Day-Before Night Out)',
+    name: 'Optimism Brewery (Day-Before Welcome Shindig)',
     group: 'Wedding locations',
-    description: 'Former funeral home and chapel, now beer hall. For those traveling from out of town, come say hello from 8-10pm. More info on the Schedule page.',
-    address: '1600 Melrose Ave, Seattle, WA 98122',
-    lng: -122.32765811254232,
-    lat: 47.615505835829666,
+    description: 'Good vibes, good beer, industrial-chic. Come say hi to friends and family and kick off the weekend with a pint or five.',
+    address: '1158 Broadway Seattle, WA 98122',
+    lng: -122.32053229210331, 
+    lat: 47.612794177993095,
     neighborhood: 'Capitol Hill',
-    link: 'http://www.pineboxbar.com'
+    link: 'https://optimismbrewing.com/'
   },
   {
     name: 'Gasworks Park (Day-After Picnic)',
@@ -38,14 +38,6 @@ export default [
     neighborhood: 'Wallingford',
     link: 'https://www.seattle.gov/parks/find/parks/gas-works-park'
   },
-  // {
-  //   name: 'Out-of-towner\'s shindig',
-  //   address: '',
-  //   lng: 0.0,
-  //   lat: 0.0,
-  //   neighborhood: 'TBD',
-  // group: 'Wedding locations',
-  // },
   {
     name: 'Pike Place Market',
     group: 'Iconic Seattle',
