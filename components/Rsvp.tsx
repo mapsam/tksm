@@ -1,5 +1,6 @@
 import type { Person, APIErrors, APIResponse, APIPostBody } from '../lib/types';
 import React, { useState, useEffect, SyntheticEvent } from 'react';
+import Image from 'next/image';
 import RsvpPerson from './RsvpPerson';
 import RsvpAttendance from './RsvpAttendance';
 import PhoneInput from 'react-phone-number-input/input';
@@ -25,7 +26,7 @@ export default function RSVP() {
   const [ infoRestrictions, setInfoRestrictions ] = useState(null);
   const [ infoAccommodations, setInfoAccommodations ] = useState(null);
   const [ infoWords, setInfoWords ] = useState(null);
-  const allowRSVPs: boolean = true;
+  const allowRSVPs: boolean = false;
 
   useEffect(() => {}, [people]);
   useEffect(() => {
@@ -74,13 +75,7 @@ export default function RSVP() {
 
   if (!allowRSVPs) {
     return (
-      <div className="rsvp-form">
-        <p>
-          The RSVP form will be made available in Spring 2023.
-          Until then, please book your accommodations as early as possible!
-          We'll send an email once the form becomes available.
-        </p>
-      </div>
+      <Image src="/cant-wait.gif" width="300" height="300" />
     )
   }
 
