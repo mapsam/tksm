@@ -21,9 +21,8 @@ export default function Index() {
           a place we've called home for more than a decade. We'll have great food, cold drinks, and
           enough live music to lose your socks.
         </p>
-        <p>RSVPs closed on July 1st. Between now and August 12th, be sure to view the <a href="/schedule">schedule</a> and learn more about <a href="/seattle">traveling to Seattle</a>.</p>
-        <p>Have a question? Check out the <a href="/faq">FAQ</a> page.</p>
-        <p>Warmly,<br />
+        <p>Check out the <a href="/schedule">schedule</a> and learn more about <a href="/seattle">things to do in Seattle</a>. Have a question? Check out the <a href="/faq">FAQ</a> page.</p>
+        <p>Get groovy!<br />
            Sam &amp; Taylor</p>
       </Block>
     </Content>
