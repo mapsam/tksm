@@ -21,11 +21,10 @@ export default function Nav(props: any) : any {
       <NavLink href="/" children="🏠" clickAction={setIsOpen}/>
       <NavLink href="/schedule" children="SCHEDULE" clickAction={setIsOpen}/>
       <NavLink href="/travel" children="TRAVEL" clickAction={setIsOpen}/>
-      <NavLink href="/accommodations" children="ACCOMMODATIONS" clickAction={setIsOpen}/>
       <NavLink href="/seattle" children="SEATTLE" clickAction={setIsOpen}/>
       <NavLink href="/faq" children="FAQ" clickAction={setIsOpen}/>
       <NavLink href="/registry" children="REGISTRY" clickAction={setIsOpen} />
-      <NavLink href="/rsvp" children="🍰 RSVP" clickAction={setIsOpen} highlight={true} />
+      <NavLink href="/accommodations" children="ACCOMMODATIONS" clickAction={setIsOpen}/>
     </nav>
     </React.Fragment>
   )

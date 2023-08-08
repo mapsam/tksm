@@ -10,9 +10,6 @@ export default function Page() {
       img={accomImage}>
       <Block id="HOTEL-BLOCK">
         <h1>Hotel Block</h1>
-        <p style={{ backgroundColor: '#ffffae', padding: '1rem' }} className="mono">
-          The hotel block is nearly full!
-        </p>
         <p>
           <strong><a href="https://www.wac.net/stay-at-the-inn/reservations/" target="_blank">The Inn at the Washington Athletic Club (WAC)</a></strong> is offering us special rates for our wedding weekend. Located in downtown Seattle and
           above the historic athletic club, you'll have access to beautiful rooms, the spa, and a

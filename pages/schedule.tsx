@@ -60,8 +60,8 @@ export default function Index() {
           <li>08:00pm: Live band & dancing</li>
           <li>11:00pm: Toodaloo!</li>
         </ul>
-        <p><em>What to wear</em>: Semi-formal. Dressy-casual. Sparkly chic. Bring some fun, make it funky and make sure you can comfortably dance. The event is indoors and has A/C if it's a scorcher.</p>
-        <p><em>Colors:</em> If you really want to match, here's our color scheme:</p>
+        <p><strong>What to wear</strong>: Semi-formal. Dressy-casual. Sparkly chic. Bring some fun, make it funky and make sure you can comfortably dance. The event is indoors and has A/C if it's a scorcher.</p>
+        <p><strong>Colors</strong>: If you really want to match, here's our color scheme:</p>
         <p style={{ textAlign: 'center' }}>
           <div style={{ backgroundColor: '#753c26', width: 35, height: 35, borderRadius: '50%', display: 'inline-block', marginRight: '0.5em' }}></div>
           <div style={{ backgroundColor: '#bcb8b0', width: 35, height: 35, borderRadius: '50%', display: 'inline-block', marginRight: '0.5em' }}></div>
@@ -75,8 +75,8 @@ export default function Index() {
             backgroundSize: '180%'
           }}></div>
         </p>
-        <p><em>Before:</em> If you're looking for a round before the wedding kicks off, <a href="https://www.seapinebrewing.com/our-roots" target="_blank">Seapine brewery</a> is just around the corner. You can also grab a cocktail at <a href="https://www.westlanddistillery.com/visit" target="_blank">Westland Distillery</a>, which shares a wall with the venue. Beer and wine will be available before and during the ceremony as well.</p>
-
+        <p><strong>Prefunk</strong>: If you're looking for a round before the wedding kicks off, <a href="https://www.seapinebrewing.com/our-roots" target="_blank">Seapine brewery</a> is just around the corner. You can also grab a cocktail at <a href="https://www.westlanddistillery.com/visit" target="_blank">Westland Distillery</a>, which shares a wall with the venue. Beer and wine will be available before and during the ceremony as well.</p>
+        <p><strong>How do I get there?</strong> Cabs, Uber, and Lyft are all readily available throughout the city. If you're staying at the hotel, we will provide Lyft discount codes. If you want to take the light rail, just beware service is relatively limited starting August 12th (learn more <a href="https://www.soundtransit.org/ride-with-us/service-alerts/upcoming-1-line-service-reduced-aug-12-20" target="_blank">here</a>). All attendees will get a Lyft discount code to use at the end of the evening!</p>
       </Block>
 
       <Block id="AUG-13">

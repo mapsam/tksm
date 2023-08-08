@@ -18,6 +18,9 @@ export default function Page() {
 
       <Block id="PUBLIC-TRANSPORTATION">
         <h1>Public Transportation</h1>
+        <p style={{ backgroundColor: '#ffffae', padding: '1rem' }} className="mono">
+          Link light rail service will be reduced August 12th - 20th! Make plans accordingly. Learn more <a href="https://www.soundtransit.org/ride-with-us/service-alerts/upcoming-1-line-service-reduced-aug-12-20" target="_blank">here</a>. Good timing, right?
+        </p>
         <p>The Link Light Rail has a stop at the airport and you can head northbound into downtown. The University Street station stop is a five minute walk to the Inn at the WAC as well as numerous other hotel locations including Hotel Alexis, Fairmont Olympic, Kimpton Hotel Monaco, and Hilton Seattle. The next north stop, Westlake Center, is a five minute walk to other hotel locations, including Hotel Andra and The Motif (Hyatt).</p>
         <p>You can also access the Link Light Rail to get to our wedding venue. You will grab the southbound train to the SODO Station and it’s about a 13 minute walk from the station to the venue.</p>
         <p>Trains arrive every 10 minutes and fare ranges from $2.50-$3.00 a ride. Day passes are also available and tickets can be purchased at every train station.</p>
