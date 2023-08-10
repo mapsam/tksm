@@ -84,7 +84,7 @@ export default function Index() {
         <p className="location-metadata">
           Time: 10am - 12pm<br />
           Location: Gasworks Park<br />
-          Aaddress: <a href="https://goo.gl/maps/ij7GFThmAF6UZAMQ7" target="_blank">2101 N Northlake Way, Seattle, WA 98103</a>
+          Address: <a href="https://goo.gl/maps/ij7GFThmAF6UZAMQ7" target="_blank">2101 N Northlake Way, Seattle, WA 98103</a>
         </p>
         <p>
           Last chance to hug that uncle of yours. Come grab coffee and a baked good in one of Seattle's lovely parks, get some fresh air, and bid farewell to the newlyweds.
