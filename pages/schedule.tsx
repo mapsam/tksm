@@ -7,7 +7,7 @@ export default function Index() {
   const toc = [
     'Friday 08/11: Traveler\'s shindig',
     'Saturday 08/12: Wedding',
-    'Sunday 08/13: Picnic'
+    'Sunday 08/13: Coffee picnic in the park'
   ].join('<br />');
 
   return (
