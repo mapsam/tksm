@@ -80,20 +80,22 @@ export default function Index() {
       </Block>
 
       <Block id="AUG-13">
-        <h1>Sunday, August 13<sup>th</sup> - Picnic</h1>
+        <h1>Sunday, August 13<sup>th</sup> - Coffee & Baked goods picnic</h1>
+        <p style={{ backgroundColor: '#ffffae', padding: '1rem' }} className="mono">
+          Location has changed! The previous park is closed for renovations and a large event on Sunday, August 13th.
+        </p>
         <p className="location-metadata">
           Time: 10am - 12pm<br />
-          Location: Gasworks Park<br />
-          Address: <a href="https://goo.gl/maps/ij7GFThmAF6UZAMQ7" target="_blank">2101 N Northlake Way, Seattle, WA 98103</a>
+          Location: Volunteer Park<br />
+          Address: <a href="https://goo.gl/maps/ketDdV63b7hsyWpp6" target="_blank">1247 15th Ave E, Seattle, WA 98112</a>
         </p>
         <p>
-          Last chance to hug that uncle of yours. Come grab coffee and a baked good in one of Seattle's lovely parks, get some fresh air, and bid farewell to the newlyweds.
+          Last chance to hug that uncle of yours. Come grab coffee and a baked good in one of Seattle's lovely parks, get some fresh air, and bid farewell to the newlyweds. We'll be near the <a href="https://goo.gl/maps/rLhVxszJ9TcXAuzFA" target="_blank">Dahlia Garden</a>. Kid's playground is nearby.
         </p>
-        <p>We'll drop a pin here once we have an established location at the park.</p>
         <p>
-          If you're coming from Downtown and the hotel block, you can <a href="https://www.google.com/maps/dir/Inn+at+the+WAC,+1325+6th+Ave,+Seattle,+WA+98101/Gas+Works+Park,+North+Northlake+Way,+Seattle,+WA/@47.6281032,-122.3623272,13.36z/data=!4m14!4m13!1m5!1m1!1s0x54906ab469628b59:0xd824805a4f80772e!2m2!1d-122.3333373!2d47.6096947!1m5!1m1!1s0x54901502b25bb07f:0x1e6e55abec496196!2m2!1d-122.3343532!2d47.6456308!3e3" target="_blank">take the 62 bus line</a> (35 minutes, $2.75) or grab an Uber/Lyft.
-          Parking is available at the park or in the nearby neighborhood.
+          If you're coming from Downtown and the hotel block, you can <a href="https://goo.gl/maps/pzL1kvxo25Gwg5YD9" target="_blank">take the 10 bus line</a> (25 minutes, $2.75) or grab an Uber/Lyft. Parking is available along the road within the park and in the surrounding neighborhood.
         </p>
+        <p><a href="https://www.seattle.gov/parks/allparks/volunteer-park" target="_blank">Volunteer Park</a> is also home to the conservatory and Asian Art Museum, if you're looking for more to do in the area.</p>
       </Block>
     </Content>
   )

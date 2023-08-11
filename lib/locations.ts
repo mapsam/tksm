@@ -29,14 +29,14 @@ export default [
     link: 'https://optimismbrewing.com/'
   },
   {
-    name: 'Gasworks Park (Day-After Picnic)',
+    name: 'Volunteer Park (Day-After Picnic)',
     group: 'Wedding locations',
-    description: 'Say hello and goodbye to the bride & groom at Gasworks Park, which provides a beautiful view of Lake Union and downtown Seattle. We\'ll provide baked goods and coffee! More info on the Schedule page.',
-    address: '2101 N Northlake Way, Seattle, WA 98103',
-    lng: -122.3338459810224,
-    lat: 47.646041605543246,
-    neighborhood: 'Wallingford',
-    link: 'https://www.seattle.gov/parks/find/parks/gas-works-park'
+    description: 'Say hello and goodbye to the bride & groom at Volunteer Park, home of the Dahlia Garden, Conservatory, and Asian Art Museum. We\'ll provide baked goods and coffee! More info on the Schedule page.',
+    address: '1247 15th Ave E, Seattle, WA 98112',
+    lng: -122.3164054,
+    lat: 47.6314833,
+    neighborhood: 'Capitol Hill',
+    link: 'https://www.seattle.gov/parks/allparks/volunteer-park'
   },
   {
     name: 'Pike Place Market',
