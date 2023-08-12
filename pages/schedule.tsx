@@ -87,10 +87,10 @@ export default function Index() {
         <p className="location-metadata">
           Time: 10am - 12pm<br />
           Location: Volunteer Park<br />
-          Address: <a href="https://goo.gl/maps/ketDdV63b7hsyWpp6" target="_blank">1247 15th Ave E, Seattle, WA 98112</a>
+          Address: <a href="https://goo.gl/maps/mbQAuZUKp7M6GAw48" target="_blank">1247 15th Ave E, Seattle, WA 98112</a>
         </p>
         <p>
-          Last chance to hug that uncle of yours. Come grab coffee and a baked good in one of Seattle's lovely parks, get some fresh air, and bid farewell to the newlyweds. We'll be near the <a href="https://goo.gl/maps/rLhVxszJ9TcXAuzFA" target="_blank">Dahlia Garden</a>. Kid's playground is nearby.
+          Last chance to hug that uncle of yours. Come grab coffee and a baked good in one of Seattle's lovely parks, get some fresh air, and bid farewell to the newlyweds. We'll be near <a href="https://goo.gl/maps/mbQAuZUKp7M6GAw48" target="_blank">this location</a>. The Dahlia Garden and Kid's playground is nearby.
         </p>
         <p>
           If you're coming from Downtown and the hotel block, you can <a href="https://goo.gl/maps/pzL1kvxo25Gwg5YD9" target="_blank">take the 10 bus line</a> (25 minutes, $2.75) or grab an Uber/Lyft. Parking is available along the road within the park and in the surrounding neighborhood.
