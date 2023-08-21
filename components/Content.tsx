@@ -14,7 +14,7 @@ export default function Content(props: ContentProps) {
   return (
     <div className="content">
       <Block id={props.name} backgroundClass="color-light-bg">
-        <h1 className="title">{props.name}</h1>
+        <h1 className="title" dangerouslySetInnerHTML={{ __html: props.name}}></h1>
         {props.img &&
           <div className="title-image-container">
             <Image src={props.img} placeholder="blur" layout="responsive" />
