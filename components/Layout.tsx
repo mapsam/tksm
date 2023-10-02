@@ -6,7 +6,7 @@ export default function Layout(props: any) : any {
   return (
     <React.Fragment>
     <div className="main">
-      <Nav />
+      {/* <Nav /> */}
 
       <section className="content">
         {props.children}
